@@ -1,0 +1,35 @@
+/* estilos nav */
+nav{
+    display: flex;
+    flex-direction: column;
+    border: 1mm solid black;
+}
+h1{
+    align-self: center;
+}
+a{
+    width: 100px;
+    align-self: flex-end;
+}
+button{
+    width: 75px;
+    height: auto;
+}
+/* estilos peliculas */
+main{
+    display: flex;
+    flex-wrap: wrap;
+}
+#contenedor-central{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+article{
+    min-width: 300px;
+    border: 1mm solid black;
+}
+/* estilo footer */
+footer{
+    align-self: center;
+}

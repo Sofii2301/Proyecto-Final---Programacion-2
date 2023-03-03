@@ -1,12 +1,16 @@
 {% extends "index.html" %}
 
+{% block nombre %}
+<p> {{ name }} </p>
+{% endblock %}
+
 {% block barra%}
 
 <button class="boton-barra">
     <a href="{{url_for('agregar')}}">Agregar Pelicula</a>
 </button>
 <button class="boton-barra">
-    <a href="{{url_for('cerrarsesion')}}">Cerrar Sesion</a>
+    <a href="{{url_for('logout')}}">Cerrar Sesion</a>
 </button>
 
 

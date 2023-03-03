@@ -4,12 +4,12 @@
 
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilos_perfil.css' )}}">
 <div>
-    <form action="" method="post"> 
-        <legend> usuario </legend>
-        <input type="text">
-        <legend> contraseña </legend>
-        <input type="password">
-        <button> enviar </button>
+    <form action="/login" method="post"> 
+        <label for="username"> usuario </label>
+        <input type="text" placeholder="Usuario" name="username" required autofocus>
+        <label for="password"> contraseña </label>
+        <input type="password" placeholder="Contraseña" name="password" required>
+        <button type="sumbit" id="iniciar_sesion">Iniciar Sesión </button>
     </form> 
 </div>
 

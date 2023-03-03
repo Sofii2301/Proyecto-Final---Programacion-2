@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html >
     <head>
+        <title>Pelis truchas</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilos_index.css' )}}">
     </head>
@@ -8,9 +9,8 @@
     <body>
         <div id="contenedor">
             <header>
-                <nav> 
-                    <h1> Pelis truchas </h1>
-                    <a title="perfil" href="login.html">   <!-- agregar link a login -->
+                <nav>   
+                    <a title="perfil" href="{{url_for('ingresar')}}">  
                         <button class="boton-menu" > 
                             <span class="material-symbols-outlined">
                                 account_circle
@@ -18,8 +18,22 @@
                         <p> {{ name }} </p>
                         </button> 
                     </a>
+                    <h1> Pelis truchas </h1>
+                    <div class="barra_navegacion">
+                        <button class="boton-barra">
+                            <a href="{{url_for('directores')}}">Directores</a>
+                        </button>
+                        <button>
+                            <a href="{{url_for('generos')}}">Generos</a>
+                        </button>
+                        {% block barra %}
+                        {% endblock %}
+                    </div>
                 </nav>
             </header>
+
+            {% block content %}
+
             <div id="contenedor-central">
                 <main>
                     <!-- para las peliculas -->
@@ -111,6 +125,9 @@
                     &copy peliculas truchas
                 </footer>
             </div>
+
+            {% endblock %}
+
         </div>
     </body>
 </html>

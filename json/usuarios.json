@@ -1,0 +1,17 @@
+[
+    {
+        "id" : "1",
+        "nombre" : "bruno",
+        "contrasenia": "contrasenia1"
+    },
+    {
+        "id" : "2",
+        "nombre" : "emanuel",
+        "contrasenia": "contrasenia2"
+    },
+    {
+        "id" : "3",
+        "nombre" : "sofi",
+        "contrasenia": "contrasenia3"
+    }
+]

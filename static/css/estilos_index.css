@@ -1,35 +1,77 @@
 /* estilos nav */
-nav{
+nav {
     display: flex;
     flex-direction: column;
-    border: 1mm solid black;
+    border: 1mm solid rgb(0, 130, 255);
+    margin: 5px;
+    padding: 10px;
 }
-h1{
+
+body {
+    background-color: rgb(13, 16, 35);
+    font-family: 'Montserrat', "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    color: white;
+    padding: 5px;
+}
+
+h1 {
     align-self: center;
+    font-size: 44px;
 }
-a{
-    width: 100px;
+
+h2 {
+    color: #6f54e2;
+}
+
+a {
     align-self: flex-end;
+    text-decoration: none;
+    color: white;
 }
-button{
-    width: 75px;
+
+button {
+    border-radius: 5px;
+    color:white;
+    background-color: #6f54e2;
+    border-style: hidden;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.boton-menu {
+    width: 65px;
     height: auto;
 }
-/* estilos peliculas */
-main{
-    display: flex;
-    flex-wrap: wrap;
+
+.boton-barra {
+    width: 80px;
+    height: 35px;
+    margin-right: 3px;
 }
-#contenedor-central{
+
+/* estilos peliculas */
+main {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 }
-article{
-    min-width: 300px;
-    border: 1mm solid black;
+
+#contenedor-central {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
+
+article {
+    align-self: center;
+    width: 1000px;
+    min-width: 300px;
+    border: 1mm solid rgb(0, 130, 255);
+    padding: 30px;
+    margin: 5px;
+}
+
 /* estilo footer */
-footer{
+footer {
     align-self: center;
 }

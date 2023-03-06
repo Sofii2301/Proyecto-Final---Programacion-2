@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.secret_key = "secreto"
 
 #Archivos json
-with open("json/usuarios.json", encoding='utf-8') as users:
+with open("usuarios.json", encoding='utf-8') as users:
     usuarios_data = json.load(users)
 
 @app.route("/",methods=["GET"])

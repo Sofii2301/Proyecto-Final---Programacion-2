@@ -39,88 +39,16 @@
             <div id="contenedor-central">
                 <main>
                     <!-- para las peliculas -->
-                    <article>  
-                        <img src="" alt="">
-                        <h2> Titulo pelicula </h2>
-                        <h3> Anio </h3>
-                        <h3>  Director </h3>
-                        <h3> Genero </h3>
-                        <p> sinopsis </p>
+                    {% for datos in peliculas %}
+                    <article>
+                            <a> imagen:{{ datos['img'] }}</a>
+                            <h2> titulo: {{ datos ['Titulo'] }} </h2>
+                            <h3> director: {{ datos ['Director'] }} </h3>
+                            <h3>  Anio: {{datos ['año']  }} </h3>
+                            <h3> genero: {{datos ['Genero'] }} </h3>
+                            <p> sinopsis: {{datos ['Sinopsis']}} </p> 
                     </article>
-                    <article>  
-                        <img src="" alt="">
-                        <h2> Titulo pelicula </h2>
-                        <h3> Anio </h3>
-                        <h3>  Director </h3>
-                        <h3> Genero </h3>
-                        <p> sinopsis </p>
-                    </article>
-                    <article>  
-                        <img src="" alt="">
-                        <h2> Titulo pelicula </h2>
-                        <h3> Anio </h3>
-                        <h3>  Director </h3>
-                        <h3> Genero </h3>
-                        <p> sinopsis </p>
-                    </article>
-                    <article>  
-                        <img src="" alt="">
-                        <h2> Titulo pelicula </h2>
-                        <h3> Anio </h3>
-                        <h3>  Director </h3>
-                        <h3> Genero </h3>
-                        <p> sinopsis </p>
-                    </article>
-                    <article>  
-                        <img src="" alt="">
-                        <h2> Titulo pelicula </h2>
-                        <h3> Anio </h3>
-                        <h3>  Director </h3>
-                        <h3> Genero </h3>
-                        <p> sinopsis </p>
-                    </article>
-                    <article>  
-                        <img src="" alt="">
-                        <h2> Titulo pelicula </h2>
-                        <h3> Anio </h3>
-                        <h3>  Director </h3>
-                        <h3> Genero </h3>
-                        <p> sinopsis </p>
-                    </article>
-                    <article>  
-                        <img src="" alt="">
-                        <h2> Titulo pelicula </h2>
-                        <h3> Anio </h3>
-                        <h3>  Director </h3>
-                        <h3> Genero </h3>
-                        <p> sinopsis </p>
-                    </article>
-                    <article>  
-                        <img src="" alt="">
-                        <h2> Titulo pelicula </h2>
-                        <h3> Anio </h3>
-                        <h3>  Director </h3>
-                        <h3> Genero </h3>
-                        <p> sinopsis </p>
-                    </article>
-                    <article>  
-                        <img src="" alt="">
-                        <h2> Titulo pelicula </h2>
-                        <h3> Anio </h3>
-                        <h3>  Director </h3>
-                        <h3> Genero </h3>
-                        <p> sinopsis </p>
-                    </article>
-                    <article>  
-                        <img src="" alt="">
-                        <h2> Titulo pelicula </h2>
-                        <h3> Anio </h3>
-                        <h3>  Director </h3>
-                        <h3> Genero </h3>
-                        <p> sinopsis </p>
-                    </article>
-                    
-                    
+                    {% endfor %}
                 </main>
 
                 <footer>

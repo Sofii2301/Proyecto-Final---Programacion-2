@@ -11,7 +11,9 @@ with open("usuarios.json", encoding='utf-8') as users:
 
 @app.route("/",methods=["GET"])
 def home(nombre='perfil'):
-    return render_template('index.html',name=nombre)
+    with open("peliculas.json", encoding='utf-8') as pelis:
+        pelis_data = json.load(pelis)
+    return render_template('index.html',name=nombre,peliculas=pelis_data)
 
 @app.route("/ingresar" )
 def ingresar():

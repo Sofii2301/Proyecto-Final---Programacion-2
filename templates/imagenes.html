@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+
+{% block content%}
+{% for datos in peliculas %}
+    {% if datos['img'] == "" %}
+    <article>
+        <a> Imágen:{{ datos['img'] }}</a>
+        <h2> {{ datos ['Titulo'] }} </h2>
+        <h3> Director: {{ datos ['Director'] }} </h3>
+        <h3> Año: {{datos ['año']  }} </h3>
+        <h3> Género: {{datos ['Genero'] }} </h3>
+        <p> Sinopsis: {{datos ['Sinopsis']}} </p> 
+    </article>
+    {%endif%}
+{% endfor %}
+{% endblock %}

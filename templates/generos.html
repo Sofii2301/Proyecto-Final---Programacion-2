@@ -1,5 +1,9 @@
 {% extends "index.html" %}
 
 {% block content%}
-
+    {% for datos in peliculas %}
+            <article>
+                <h3> genero: {{datos ['Genero'] }} </h3>
+            </article> 
+    {% endfor %}
 {% endblock %}

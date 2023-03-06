@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html >
     <head>
-        <title>Pelis truchas</title>
+        <title>Pelis SBE</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilos_index.css' )}}">
     </head>
@@ -20,13 +20,28 @@
                         {% endblock %}
                         </button> 
                     </a>
-                    <h1> Pelis truchas </h1>
+                    <h1> Pelis SBE </h1>
                     <div class="barra_navegacion">
                         <button class="boton-barra">
                             <a href="{{url_for('directores')}}">Directores</a>
                         </button>
                         <button>
                             <a href="{{url_for('generos')}}">Generos</a>
+                        </button>
+                        <button class="boton-barra">
+                            <a href="{{url_for('home')}}">Inicio</a>
+                        </button>
+                        <button class="boton-barra">
+                            <a href="{{url_for('imagenes')}}"> Imagenes </a>
+                        </button>
+                        <button class="boton-barra">
+                            <a href="{{url_for('buscar_directores')}}">Buscar directores</a>
+                        </button>
+                        <button class="boton-barra">
+                            <a href="{{url_for('buscar_peliculas')}}">Buscar peliculas</a>
+                        </button>
+                        <button class="boton-barra">
+                            <a href="{{url_for('buscar_actores')}}">Buscar actores</a>
                         </button>
                         {% block barra %}
                         {% endblock %}
@@ -41,18 +56,18 @@
                     <!-- para las peliculas -->
                     {% for datos in peliculas %}
                     <article>
-                            <a> imagen:{{ datos['img'] }}</a>
-                            <h2> titulo: {{ datos ['Titulo'] }} </h2>
-                            <h3> director: {{ datos ['Director'] }} </h3>
-                            <h3>  Anio: {{datos ['año']  }} </h3>
-                            <h3> genero: {{datos ['Genero'] }} </h3>
-                            <p> sinopsis: {{datos ['Sinopsis']}} </p> 
+                            <a> Imágen:{{ datos['img'] }}</a>
+                            <h2> {{ datos ['Titulo'] }} </h2>
+                            <h3> Director: {{ datos ['Director'] }} </h3>
+                            <h3> Año: {{datos ['año']  }} </h3>
+                            <h3> Género: {{datos ['Genero'] }} </h3>
+                            <p> Sinopsis: {{datos ['Sinopsis']}} </p> 
                     </article>
                     {% endfor %}
                 </main>
 
                 <footer>
-                    &copy peliculas truchas
+                    &copy Películas SBE
                 </footer>
             </div>
 

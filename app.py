@@ -38,12 +38,35 @@ def log(name):
 
 @app.route("/directores")
 def directores():
-    return render_template('directores.html')
+    with open("peliculas.json", encoding='utf-8') as pelis:
+        pelis_data = json.load(pelis)
+    return render_template('directores.html',peliculas=pelis_data)
 
 @app.route("/generos")
 def generos():
-    return render_template('generos.html')
-
+    with open("peliculas.json", encoding='utf-8') as pelis:
+        pelis_data = json.load(pelis)
+    return render_template('generos.html',peliculas=pelis_data)
+@app.route("/imagenes")
+def imagenes():
+    with open("peliculas.json", encoding='utf-8') as pelis:
+        pelis_data = json.load(pelis)
+    return render_template('imagenes.html',peliculas=pelis_data)
+@app.route("/buscarDirectores")
+def buscar_directores():
+    with open("peliculas.json", encoding='utf-8') as pelis:
+        pelis_data = json.load(pelis)
+    return render_template('buscar_directores.html',peliculas=pelis_data)
+@app.route("/buscarPeliculas")
+def buscar_peliculas():
+    with open("peliculas.json", encoding='utf-8') as pelis:
+        pelis_data = json.load(pelis)
+    return render_template('buscar_peliculas.html',peliculas=pelis_data)
+@app.route("/buscarActores")
+def buscar_actores():
+    with open("peliculas.json", encoding='utf-8') as pelis:
+        pelis_data = json.load(pelis)
+    return render_template('buscar_actores.html',peliculas=pelis_data)
 @app.route("/agregarPeli")
 def agregar():
     return render_template('agregarPeli.html')

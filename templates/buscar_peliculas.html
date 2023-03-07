@@ -1,16 +1,26 @@
 {% extends "index.html" %}
 
 {% block content%}
-    {% for datos in peliculas %}
-        {% if datos['Titulo'] ==  " El joven manos de tijeras " %}
+<div id="contenedor-central">
+    <main>
+        <!-- para las peliculas -->
+        {% for datos in peliculas %}
         <article>
-            <a> Imágen:{{ datos['img'] }}</a>
-            <h2> {{ datos ['Titulo'] }} </h2>
-            <h3> Director: {{ datos ['Director'] }} </h3>
-            <h3> Año: {{datos ['año']  }} </h3>
-            <h3> Género: {{datos ['Genero'] }} </h3>
-            <p> Sinopsis: {{datos ['Sinopsis']}} </p> 
+            <div id="img">
+                <img src="{{ datos['img'] }}" alt="imagen" width="200px" height="300px">
+            </div>
+            <div id="info">
+                <h2> {{ datos ['Titulo'] }} </h2>
+                <h3> Director: {{ datos ['Director'] }} </h3>
+                <h3> Año: {{datos ['año']  }} </h3>
+                <h3> Género: {{datos ['Genero'] }} </h3>
+                <p> Sinopsis: {{datos ['Sinopsis']}} </p> 
+            </div>      
         </article>
-        {%endif%} 
-    {% endfor %}
+        {% endfor %}
+    </main>
+    <footer>
+        &copy Películas SBE
+    </footer>
+</div>
 {% endblock %}

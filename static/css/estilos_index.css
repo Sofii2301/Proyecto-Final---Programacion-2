@@ -69,6 +69,11 @@ article {
     border: 1mm solid rgb(0, 130, 255);
     padding: 30px;
     margin: 5px;
+    display: flex;
+}
+
+#info {
+    padding-left: 20px;
 }
 
 /* estilo footer */

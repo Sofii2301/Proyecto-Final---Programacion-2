@@ -15,9 +15,7 @@
                             <span class="material-symbols-outlined">
                                 account_circle
                             </span>
-                        {% block nombre %}
                         <p> {{ name }} </p>
-                        {% endblock %}
                         </button> 
                     </a>
                     <h1> Pelis SBE </h1>
@@ -56,12 +54,17 @@
                     <!-- para las peliculas -->
                     {% for datos in peliculas %}
                     <article>
-                            <a> Imágen:{{ datos['img'] }}</a>
+                        <div id="img">
+                            <img src="{{ datos['img'] }}" alt="imagen" width="200px" height="300px">
+                        </div>
+                        <div id="info">
                             <h2> {{ datos ['Titulo'] }} </h2>
                             <h3> Director: {{ datos ['Director'] }} </h3>
                             <h3> Año: {{datos ['año']  }} </h3>
                             <h3> Género: {{datos ['Genero'] }} </h3>
                             <p> Sinopsis: {{datos ['Sinopsis']}} </p> 
+                        </div>
+                            
                     </article>
                     {% endfor %}
                 </main>

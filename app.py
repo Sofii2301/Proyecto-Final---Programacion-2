@@ -10,7 +10,7 @@ with open("usuarios.json", encoding='utf-8') as users:
     usuarios_data = json.load(users)
 
 @app.route("/",methods=["GET"])
-def home(nombre='perfil'):
+def home(nombre=''):
     with open("peliculas.json", encoding='utf-8') as pelis:
         pelis_data = json.load(pelis)
     return render_template('index.html',name=nombre,peliculas=pelis_data)
@@ -46,7 +46,7 @@ def directores():
 def generos():
     with open("peliculas.json", encoding='utf-8') as pelis:
         pelis_data = json.load(pelis)
-    return render_template('generos.html',peliculas=pelis_data)
+    return render_template('generos.html',peliculas=pelis_data,)
 @app.route("/imagenes")
 def imagenes():
     with open("peliculas.json", encoding='utf-8') as pelis:

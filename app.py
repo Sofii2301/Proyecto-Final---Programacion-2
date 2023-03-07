@@ -6,10 +6,11 @@ app.secret_key = "secreto"
 #Archivos json
 with open("usuarios.json", encoding='utf-8') as users:
     usuarios_data = json.load(users)
+#archivos peliculas
+with open("peliculas.json", encoding='utf-8') as pelis:
+    pelis_data = json.load(pelis)
 @app.route("/",methods=["GET"])
 def home(nombre=''):
-    with open("peliculas.json", encoding='utf-8') as pelis:
-        pelis_data = json.load(pelis)
     session['contador'] = session.get('contador',0) + 1
     contador_visitas=session['contador']
     return render_template('index.html',name=nombre,peliculas=pelis_data,visitas=contador_visitas)
@@ -37,34 +38,46 @@ def log(name):
 
 @app.route("/directores")
 def directores():
-    with open("peliculas.json", encoding='utf-8') as pelis:
-        pelis_data = json.load(pelis)
     return render_template('directores.html',peliculas=pelis_data)
 @app.route("/generos")
 def generos():
-    with open("peliculas.json", encoding='utf-8') as pelis:
-        pelis_data = json.load(pelis)
     return render_template('generos.html',peliculas=pelis_data,)
 @app.route("/imagenes")
 def imagenes():
-    with open("peliculas.json", encoding='utf-8') as pelis:
-        pelis_data = json.load(pelis)
     return render_template('imagenes.html',peliculas=pelis_data)
-@app.route("/buscarDirectores")
+@app.route("/confirmar", methods=["POST","GET"])
+def confirm():
+    if request.method == "POST":
+         for i in pelis_data:
+            if i["Director"] == request.form["directores"]:
+                return redirect(url_for("buscar_directores", director=i["Director"]))
+    return "no se encontraron directores" 
+@app.route("/buscarDirectores",methods=["POST","GET"])
 def buscar_directores():
-    with open("peliculas.json", encoding='utf-8') as pelis:
-        pelis_data = json.load(pelis)
-    return render_template('buscar_directores.html',peliculas=pelis_data)
+    director1 = request.args.get('director')
+    return render_template('buscar_directores.html', peliculas=pelis_data, director1=director1)
+@app.route("/confirmar_peliculas", methods=["POST","GET"])
+def confirm_peliculas():
+    if request.method == "POST":
+         for i in pelis_data:
+            if i["Titulo"] == request.form["titulo"]:
+                return redirect(url_for("buscar_peliculas", titulo=i["Titulo"]))
+    return "no se encontro el titulo" 
 @app.route("/buscarPeliculas")
 def buscar_peliculas():
-    with open("peliculas.json", encoding='utf-8') as pelis:
-        pelis_data = json.load(pelis)
-    return render_template('buscar_peliculas.html',peliculas=pelis_data)
+    titulo1=request.args.get('titulo')
+    return render_template('buscar_peliculas.html',peliculas=pelis_data,titulo1=titulo1)
+@app.route("/confirmar_actores", methods=["POST","GET"])
+def confirm_actores():
+    if request.method == "POST":
+         for i in pelis_data:
+            if i["Actores"] == request.form["actores"]:
+                return redirect(url_for("buscar_actores", actor=i["Actores"]))
+    return "no se encontro al actor"
 @app.route("/buscarActores")
 def buscar_actores():
-    with open("peliculas.json", encoding='utf-8') as pelis:
-        pelis_data = json.load(pelis)
-    return render_template('buscar_actores.html',peliculas=pelis_data)
+    actor1=request.args.get('actor')
+    return render_template('buscar_actores.html',peliculas=pelis_data,actor1=actor1)
 @app.route("/agregarPeli")
 def agregar():
     return render_template('agregarPeli.html')

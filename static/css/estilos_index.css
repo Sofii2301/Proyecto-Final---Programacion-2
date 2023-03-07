@@ -22,6 +22,7 @@ h1 {
     align-items: center;
     font-size: 44px;
     margin: 1px;
+    margin-bottom: 14px;
 }
 
 h2 {
@@ -53,8 +54,17 @@ button {
 }
 
 .boton-menu {
-    width: 65px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    width: auto;
     height: auto;
+}
+
+#span_perfil {
+    display: flex;
+    justify-content: center;
+    margin: 2.5px;
 }
 
 #botones_barra_izq {
@@ -102,15 +112,16 @@ main {
 }
 
 article {
+    display: flex;
     align-self: center;
     width: 950px;
     min-width: 300px;
     background-color: #181A31;
     border: 1.5mm solid rgb(0, 130, 255);
     border-radius: 5px;
-    padding: 30px;
-    margin: 5px;
-    display: flex;
+    padding: 20px;
+    margin: 8px;
+    
 }
 
 #info {

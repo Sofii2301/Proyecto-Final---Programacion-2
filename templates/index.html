@@ -12,7 +12,7 @@
                 <nav>   
                     <a title="perfil" href="{{url_for('ingresar')}}">  
                         <button class="boton-menu" > 
-                            <span class="material-symbols-outlined">
+                            <span class="material-symbols-outlined" id="span_perfil">
                                 account_circle
                             </span>
                         <p> {{ name }} </p>
@@ -21,7 +21,7 @@
                     <h1> Pelis SBE </h1>
                     <div class="barra_navegacion">
                         <div id="botones_barra_izq">
-                            <button class="botones_barra_izq">
+                            <button class="boton-barra">
                                 <a href="{{url_for('home')}}"> Inicio </a>
                             </button>
                             <button class="boton-barra">
@@ -37,10 +37,10 @@
 
                         {% if name != '' %}
                         <button class="boton-barra">
-                            <a href="{{url_for('agregar')}}">Agregar Pelicula</a>
+                            <a href="{{url_for('agregar')}}"> Agregar Película </a>
                         </button>
                         <button class="boton-barra">
-                            <a href="{{url_for('logout')}}">Cerrar Sesion</a>
+                            <a href="{{url_for('logout')}}"> Cerrar Sesion </a>
                         </button>
                         {% endif %}
                         <div id="botones_buscar" >

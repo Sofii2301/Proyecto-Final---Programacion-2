@@ -1,0 +1,20 @@
+#div_perfil {
+    display: flex;
+    justify-content: center;
+}
+
+#ingresar {
+    display: flex;
+    align-items: baseline;
+    margin: 20px;
+}
+
+#input_ingresar {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#iniciar_sesion {
+    padding: 6px;
+    margin-left: 3px;
+}

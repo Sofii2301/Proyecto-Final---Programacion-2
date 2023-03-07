@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html >
     <head>
-        <title>Pelis SBE</title>
+        <title> Pelis SBE </title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilos_index.css' )}}">
     </head>
@@ -21,26 +21,28 @@
                     <h1> Pelis SBE </h1>
                     <div class="barra_navegacion">
                         <button class="boton-barra">
-                            <a href="{{url_for('directores')}}">Directores</a>
+                            <a href="{{url_for('home')}}"> Inicio </a>
+                        </button>
+                        <button class="boton-barra">
+                            <a href="{{url_for('directores')}}"> Directores </a>
                         </button>
                         <button class=boton-barra>
-                            <a href="{{url_for('generos')}}">Generos</a>
+                            <a href="{{url_for('generos')}}"> Géneros </a>
                         </button>
                         <button class="boton-barra">
-                            <a href="{{url_for('home')}}">Inicio</a>
+                            <a href="{{url_for('imagenes')}}"> Imágenes </a>
                         </button>
-                        <button class="boton-barra">
-                            <a href="{{url_for('imagenes')}}"> Imagenes </a>
-                        </button>
-                        <button class="boton-barra">
-                            <a href="{{url_for('buscar_directores')}}">Buscar directores</a>
-                        </button>
-                        <button class="boton-barra">
-                            <a href="{{url_for('buscar_peliculas')}}">Buscar peliculas</a>
-                        </button>
-                        <button class="boton-barra">
-                            <a href="{{url_for('buscar_actores')}}">Buscar actores</a>
-                        </button>
+                        <div id="botones_buscar" >
+                            <button class="boton-barra-buscar">
+                                <a href="{{url_for('buscar_directores')}}"> Buscar directores </a>
+                            </button>
+                            <button class="boton-barra-buscar">
+                                <a href="{{url_for('buscar_peliculas')}}"> Buscar películas </a>
+                            </button>
+                            <button class="boton-barra-buscar">
+                                <a href="{{url_for('buscar_actores')}}"> Buscar actores </a>
+                            </button>
+                        </div>
                         {% block barra %}
                         {% endblock %}
                     </div>
@@ -55,14 +57,14 @@
                     {% for datos in peliculas %}
                     <article>
                         <div id="img">
-                            <img src="{{ datos['img'] }}" alt="imagen" width="200px" height="300px">
+                            <img src=" {{ datos ['img'] }} " alt="imagen" width="200px" height="300px">
                         </div>
                         <div id="info">
                             <h2> {{ datos ['Titulo'] }} </h2>
                             <h3> Director: {{ datos ['Director'] }} </h3>
-                            <h3> Año: {{datos ['año']  }} </h3>
-                            <h3> Género: {{datos ['Genero'] }} </h3>
-                            <p> Sinopsis: {{datos ['Sinopsis']}} </p> 
+                            <h3> Año: {{ datos ['año'] }} </h3>
+                            <h3> Género: {{ datos ['Genero'] }} </h3>
+                            <p id="id_sinopsis" > Sinopsis: </p> <p> {{ datos ['Sinopsis'] }} </p> 
                         </div>
                             
                     </article>
@@ -70,6 +72,7 @@
                 </main>
 
                 <footer>
+                    <p> Cantidad de visitas en la página: {{ visitas }} </p>
                     &copy Películas SBE
                 </footer>
             </div>

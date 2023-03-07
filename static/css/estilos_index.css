@@ -2,7 +2,9 @@
 nav {
     display: flex;
     flex-direction: column;
-    border: 1mm solid rgb(0, 130, 255);
+    background-color: #181A31;
+    border: 1.5mm solid rgb(0, 130, 255);
+    border-radius: 5px;
     margin: 5px;
     padding: 10px;
 }
@@ -15,8 +17,11 @@ body {
 }
 
 h1 {
-    align-self: center;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
     font-size: 44px;
+    margin: 1px;
 }
 
 h2 {
@@ -27,6 +32,10 @@ a {
     align-self: flex-end;
     text-decoration: none;
     color: white;
+}
+
+#id_sinopsis {
+    font-weight: bold;
 }
 
 button {
@@ -49,6 +58,17 @@ button {
     margin-right: 3px;
 }
 
+.boton-barra-buscar {
+    width: 80px;
+    height: 35px;
+    margin-left: 7px;
+}
+
+#botones_buscar {
+    display: flex;
+    justify-content: flex-end;
+}
+
 /* estilos peliculas */
 main {
     display: flex;
@@ -64,9 +84,11 @@ main {
 
 article {
     align-self: center;
-    width: 1000px;
+    width: 950px;
     min-width: 300px;
-    border: 1mm solid rgb(0, 130, 255);
+    background-color: #181A31;
+    border: 1.5mm solid rgb(0, 130, 255);
+    border-radius: 5px;
     padding: 30px;
     margin: 5px;
     display: flex;

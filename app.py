@@ -88,25 +88,48 @@ def confirm_actores():
 def buscar_actores():
     actor1=request.args.get('actor')
     return render_template('buscar_actores.html',name=usuario(),peliculas=pelis_data,actor1=actor1)
+@app.route("/confirmar_agregar", methods=['GET','POST'])
+def confirm_agregar():
+    if request.method == "POST":
+        titulo=request.form["titulo"]
+        titulo=titulo.title()
+        sinopsis=request.form["sinopsis"]
+        sinopsis=sinopsis.title()
+        director=request.form["director"]
+        año=request.form["anio"]
+        genero=request.form["genero"]
+        actores=request.form["actores"]
+        for i in pelis_data:
+            if i["Titulo"] == titulo:
+                return "ya existe esta pelicula"
+        confirmacion="S"
+        return redirect(url_for('agregar',titulo=titulo,director=director,año=año,genero=genero,sinopsis=sinopsis,actores=actores,confirmacion=confirmacion))
 @app.route("/agregarPeli", methods=['GET', 'POST'])
 def agregar():
+    peli_agregar=request.args.get("confirmacion")
+    titulo=request.args.get("titulo")
+    director1=request.args.get("director")
+    año=request.args.get("año")
+    genero1=request.args.get("genero")
+    sinopsis=request.args.get("sinopsis")
+    actores=request.args.get("actores")
     director=[]
     genero=[]
     if 'user' not in session: 
         return redirect(url_for('home'))
-    if request.method == 'POST':
+    if peli_agregar == 'S':
         pelicula = {
-            "img": request.form['imagen'],
-            "Titulo": request.form['titulo'], 
-            "Director": request.form['director'], 
-            "año" : request.form['anio'], 
-            "Genero" : request.form['genero'],
-            "Sinopsis" : request.form['sinopsis'],
-            "Actores" :request.form['actores'],
+            "img":  "",
+            "Titulo": titulo, 
+            "Director": director1, 
+            "año" : año, 
+            "Genero" : genero1,
+            "Sinopsis" :sinopsis,
+            "Actores" : actores,
             "Comentarios":[
                 {
                     "Usuario":session["user"],
-                    "Comentario":request.form["opinion"]
+                    "Comentario":"request.form[opinion]"
                 }
             ]
         }

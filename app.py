@@ -17,6 +17,9 @@ def usuario():
         name = ''
     return name
 
+def error(dato):    
+    return render_template('error.html',name=usuario(),dato=dato)
+
 #Rutas
 @app.route("/",methods=["GET"])
 def home():
@@ -54,7 +57,7 @@ def confirm():
         for i in pelis_data:
             if i["Director"] == directores:
                 return redirect(url_for("buscar_directores", director=i["Director"]))
-    return render_template("error.html",dato=directores) 
+    return error(directores)
 @app.route("/buscarDirectores",methods=["POST","GET"])
 def buscar_directores():
     director1 = request.args.get('director')
@@ -67,7 +70,7 @@ def confirm_peliculas():
         for i in pelis_data:
             if i["Titulo"] == titulo:
                 return redirect(url_for("buscar_peliculas", titulo=i["Titulo"]))
-    return render_template("error.html",dato=titulo) 
+    return error(titulo)
 @app.route("/buscarPeliculas")
 def buscar_peliculas():
     titulo1=request.args.get('titulo')
@@ -80,7 +83,7 @@ def confirm_actores():
         for i in pelis_data:
             if i["Actores"] == actores:
                 return redirect(url_for("buscar_actores", actor=i["Actores"]))
-    return render_template("error.html",dato=actores) 
+    return error(actores)
 @app.route("/buscarActores")
 def buscar_actores():
     actor1=request.args.get('actor')
@@ -115,6 +118,7 @@ def agregar():
         director.append(datos['Director'])
         genero.append(datos['Genero'])    
     return render_template('agregarPeli.html',name=usuario(), directores=director, generos=genero)
+
 @app.route('/logout')
 def logout():
   session.pop('user', None)

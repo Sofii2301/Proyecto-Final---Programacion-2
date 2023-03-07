@@ -4,10 +4,14 @@
 <div id="contenedor-central">
     <main>
         <!-- para las peliculas -->
-        <form action="/confirmar_peliculas" method="post">
-            <label for="directores">Buscar</label>
-            <input type="text" placeholder="buscar" name="titulo">
-            <button type="submit" id="buscar_titulo">Buscar</button>
+        <form action="/confirmar_peliculas" method="post" id="buscadores">
+            <label for="directores"> Buscar películas: </label>
+            <input type="text" name="titulo" id="input_buscadores">
+            <button type="submit" id="buscar_titulo">
+                <span class="material-symbols-outlined">
+                    search
+                </span>
+            </button>
         </form>
         {% for datos in peliculas %}
             {% if datos['Titulo'] == titulo1 %}
@@ -15,12 +19,14 @@
                     <div id="img">
                         <img src=" {{ datos ['img'] }} " alt="imagen" width="200px" height="300px">
                     </div>
-                    <h2> {{ datos ['Titulo'] }} </h2>
-                    <h3> Director: {{ datos ['Director'] }} </h3>
-                    <h3> Año: {{datos ['año']  }} </h3>
-                    <h3> Género: {{datos ['Genero'] }} </h3>
-                    <p> Sinopsis: {{datos ['Sinopsis']}} </p>
-                    <h4> Actores: {{ datos ['Actores'] }} </h4> 
+                    <div id="info">
+                        <h2> {{ datos ['Titulo'] }} </h2>
+                        <h3> Director: {{ datos ['Director'] }} </h3>
+                        <h3> Año: {{datos ['año']  }} </h3>
+                        <h3> Género: {{datos ['Genero'] }} </h3>
+                        <p id="id_sinopsis" > Sinopsis: </p> <p> {{ datos ['Sinopsis'] }} </p>
+                        <h4> Actores: {{ datos ['Actores'] }} </h4> 
+                    </div>
                 </article>
             {% endif %} 
         {% endfor %}

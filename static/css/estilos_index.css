@@ -69,6 +69,16 @@ button {
     justify-content: flex-end;
 }
 
+#buscadores {
+    display: flex;
+    margin: 8px;
+}
+
+#input_buscadores {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
 /* estilos peliculas */
 main {
     display: flex;

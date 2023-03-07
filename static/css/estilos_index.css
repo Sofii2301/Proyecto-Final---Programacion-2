@@ -38,6 +38,11 @@ a {
     font-weight: bold;
 }
 
+.barra_navegacion {
+    display: flex;
+    justify-content: space-between;
+}
+
 button {
     border-radius: 5px;
     color:white;
@@ -52,10 +57,14 @@ button {
     height: auto;
 }
 
+#botones_barra_izq {
+    display: flex;
+}
+
 .boton-barra {
     width: 80px;
     height: 35px;
-    margin-right: 3px;
+    margin-right: 7px;
 }
 
 .boton-barra-buscar {
@@ -67,6 +76,16 @@ button {
 #botones_buscar {
     display: flex;
     justify-content: flex-end;
+}
+
+#buscadores {
+    display: flex;
+    margin: 8px;
+}
+
+#input_buscadores {
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 /* estilos peliculas */
@@ -100,5 +119,7 @@ article {
 
 /* estilo footer */
 footer {
-    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

@@ -1,19 +1,18 @@
 from flask import Flask, session, redirect, url_for, request, jsonify
 from flask import render_template
 import json
-
 app = Flask(__name__)
 app.secret_key = "secreto"
-
 #Archivos json
 with open("usuarios.json", encoding='utf-8') as users:
     usuarios_data = json.load(users)
-
 @app.route("/",methods=["GET"])
 def home(nombre='perfil'):
     with open("peliculas.json", encoding='utf-8') as pelis:
         pelis_data = json.load(pelis)
-    return render_template('index.html',name=nombre,peliculas=pelis_data)
+    session['contador'] = session.get('contador',0) + 1
+    contador_visitas=session['contador']
+    return render_template('index.html',name=nombre,peliculas=pelis_data,visitas=contador_visitas)
 
 @app.route("/ingresar" )
 def ingresar():
@@ -41,7 +40,6 @@ def directores():
     with open("peliculas.json", encoding='utf-8') as pelis:
         pelis_data = json.load(pelis)
     return render_template('directores.html',peliculas=pelis_data)
-
 @app.route("/generos")
 def generos():
     with open("peliculas.json", encoding='utf-8') as pelis:
@@ -70,11 +68,8 @@ def buscar_actores():
 @app.route("/agregarPeli")
 def agregar():
     return render_template('agregarPeli.html')
-
 @app.route('/logout')
 def logout():
   session.pop('username', None)
   return redirect(url_for('home'))
-
-
 app.run( debug=True, port=8000 )

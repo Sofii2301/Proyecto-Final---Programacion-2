@@ -48,8 +48,10 @@ def imagenes():
 @app.route("/confirmar", methods=["POST","GET"])
 def confirm():
     if request.method == "POST":
-         for i in pelis_data:
-            if i["Director"] == request.form["directores"]:
+        directores=request.form["directores"]
+        directores=directores.title()
+        for i in pelis_data:
+            if i["Director"] == directores:
                 return redirect(url_for("buscar_directores", director=i["Director"]))
     return "no se encontraron directores" 
 @app.route("/buscarDirectores",methods=["POST","GET"])
@@ -59,8 +61,10 @@ def buscar_directores():
 @app.route("/confirmar_peliculas", methods=["POST","GET"])
 def confirm_peliculas():
     if request.method == "POST":
-         for i in pelis_data:
-            if i["Titulo"] == request.form["titulo"]:
+        titulo=request.form["titulo"]
+        titulo=titulo.title()
+        for i in pelis_data:
+            if i["Titulo"] == titulo:
                 return redirect(url_for("buscar_peliculas", titulo=i["Titulo"]))
     return "no se encontro el titulo" 
 @app.route("/buscarPeliculas")
@@ -70,8 +74,10 @@ def buscar_peliculas():
 @app.route("/confirmar_actores", methods=["POST","GET"])
 def confirm_actores():
     if request.method == "POST":
-         for i in pelis_data:
-            if i["Actores"] == request.form["actores"]:
+        actores=request.form["actores"]
+        actores=actores.title()
+        for i in pelis_data:
+            if i["Actores"] == actores:
                 return redirect(url_for("buscar_actores", actor=i["Actores"]))
     return "no se encontro al actor"
 @app.route("/buscarActores")

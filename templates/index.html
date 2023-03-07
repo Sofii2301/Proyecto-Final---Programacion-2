@@ -20,18 +20,21 @@
                     </a>
                     <h1> Pelis SBE </h1>
                     <div class="barra_navegacion">
-                        <button class="boton-barra">
-                            <a href="{{url_for('home')}}"> Inicio </a>
-                        </button>
-                        <button class="boton-barra">
-                            <a href="{{url_for('directores')}}"> Directores </a>
-                        </button>
-                        <button class=boton-barra>
-                            <a href="{{url_for('generos')}}"> Géneros </a>
-                        </button>
-                        <button class="boton-barra">
-                            <a href="{{url_for('imagenes')}}"> Imágenes </a>
-                        </button>
+                        <div id="botones_barra_izq">
+                            <button class="boton-barra">
+                                <a href="{{url_for('home')}}"> Inicio </a>
+                            </button>
+                            <button class="boton-barra">
+                                <a href="{{url_for('directores')}}"> Directores </a>
+                            </button>
+                            <button class=boton-barra>
+                                <a href="{{url_for('generos')}}"> Géneros </a>
+                            </button>
+                            <button class="boton-barra">
+                                <a href="{{url_for('imagenes')}}"> Imágenes </a>
+                            </button>
+                        </div>
+
                         <div id="botones_buscar" >
                             <button class="boton-barra-buscar">
                                 <a href="{{url_for('buscar_directores')}}"> Buscar directores </a>

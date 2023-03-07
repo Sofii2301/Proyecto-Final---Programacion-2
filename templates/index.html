@@ -20,7 +20,7 @@
                     </a>
                     <h1> Pelis SBE </h1>
                     <div class="barra_navegacion">
-                        <button class="boton-barra">
+                        <button class="botones_barra_izq">
                             <a href="{{url_for('home')}}"> Inicio </a>
                         </button>
                         <button class="boton-barra">
@@ -32,6 +32,14 @@
                         <button class="boton-barra">
                             <a href="{{url_for('imagenes')}}"> Imágenes </a>
                         </button>
+                        {% if name != '' %}
+                        <button class="boton-barra">
+                            <a href="{{url_for('agregar')}}">Agregar Pelicula</a>
+                        </button>
+                        <button class="boton-barra">
+                            <a href="{{url_for('logout')}}">Cerrar Sesion</a>
+                        </button>
+                        {% endif %}
                         <div id="botones_buscar" >
                             <button class="boton-barra-buscar">
                                 <a href="{{url_for('buscar_directores')}}"> Buscar directores </a>
@@ -43,8 +51,6 @@
                                 <a href="{{url_for('buscar_actores')}}"> Buscar actores </a>
                             </button>
                         </div>
-                        {% block barra %}
-                        {% endblock %}
                     </div>
                 </nav>
             </header>

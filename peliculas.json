@@ -2,11 +2,12 @@
     {
         "img": " https://www.lavanguardia.com/peliculas-series/images/movie/poster/2006/12/w1280/qF6JFr6IdfNep0x6yw3i7S8avAb.jpg ",
         "Titulo": "En busca de la felicidad", 
-        "Director": "Grabiele muccino", 
+        "Director": "Grabiele Muccino", 
         "año" : " 2006 ", 
         "Genero" : " Drama ",
         "Sinopsis" : " La vida es una lucha para Chris Gardner. Expulsado de su apartamento, él y su joven hijo se encuentran solos sin ningún lugar a donde ir. A pesar de que Chris eventualmente consigue trabajo como interno en una prestigiosa firma financiera, la posición no le da dinero. El dúo debe vivir en un albergue y enfrentar muchas dificultades, pero Chris no se da por vencido y lucha por conseguir una vida mejor para él y su hijo. ",
-        "Actores" : " Will Smith, Thandie Newton, Brian Howe. "
+        "Actores" : " Will Smith, Thandie Newton, Brian Howe. ",
+        "Comentarios": []
     },
     {
         "img": " https://pics.filmaffinity.com/Regreso_al_futuro-139415628-large.jpg ",
@@ -15,7 +16,8 @@
         "año" : " 1985 ", 
         "Genero" : " Ciencia ficción ",
         "Sinopsis" : " Tras viajar al pasado por accidente en un DeLorean convertido en máquina del tiempo, Marty McFly debe asegurarse de que sus padres se enamoren para volver al futuro. ",
-        "Actores" : " Michael J. Fox, Christopher Lloyd, Lea Thompson. "
+        "Actores" : " Michael J. Fox, Christopher Lloyd, Lea Thompson. ",
+        "Comentarios": []
     },
     {
         "img":" https://pics.filmaffinity.com/Up_una_aventura_de_altura-672315222-large.jpg ",
@@ -24,7 +26,8 @@
         "año" : " 2009 ", 
         "Genero" : " Animación ",
         "Sinopsis" : " Carl Fredricksen es un vendedor de globos de 78 años de edad dispuesto a cumplir su sueño: atar miles de globos a su casa y volar a Sudamérica. Sin embargo, descubre demasiado tarde a un joven e inesperado polizón. Lo que en principio será recelo, acabará por tornarse simpatía hacia el muchacho mientras juntos pasan fascinantes aventuras en exóticos lugares. ",
-        "Actores" : " Pete Docter, Ed Asner, Elie Docter. "
+        "Actores" : " Pete Docter, Ed Asner, Elie Docter. ",
+        "Comentarios": []
     },
     {
         "img": " https://pics.filmaffinity.com/Eduardo_Manostijeras-367797250-large.jpg ",
@@ -33,7 +36,8 @@
         "año" : " 1990 ", 
         "Genero" : " Fantasía ",
         "Sinopsis" : " Cuenta la historia de un hombre creado artificialmente llamado Edward, que tiene tijeras en vez de manos. Edward es adoptado por una familia de clase media que vive en un idílico barrio residencial y acaba enamorado de la hija, Kim. ",
-        "Actores" : " Johnny Depp, Winona Ryder, Dianne Wiest. "
+        "Actores" : " Johnny Depp, Winona Ryder, Dianne Wiest. ",
+        "Comentarios": []
     },
     {
         "img": " https://pics.filmaffinity.com/Relatos_salvajes-102488639-large.jpg ",
@@ -42,7 +46,8 @@
         "año" : "2014", 
         "Genero" : "Comedia",
         "Sinopsis" : " Seis relatos que alternan la intriga, la comedia y la violencia. Sus personajes se verán empujados hacia el abismo y hacia el innegable placer de perder el control al cruzar la delgada línea que separa la civilización de la barbarie. ",
-        "Actores" : " Ricardo Darín, Érica Rivas, Leonardo Sbaraglia. "
+        "Actores" : " Ricardo Darín, Érica Rivas, Leonardo Sbaraglia. ",
+        "Comentarios": []
     },
     {
         "img": " https://pics.filmaffinity.com/Annabelle-671994408-large.jpg ",
@@ -51,7 +56,8 @@
         "año" : "2014", 
         "Genero" : " Terror ",
         "Sinopsis" : " John Form encuentra el regalo perfecto para Mia (su esposa embarazada), una preciosa muñeca antigua llamada Annabelle. Una noche, una secta satánica les ataca brutalmente y provocan que un ente maligno se apodere de Annabelle. ",
-        "Actores" : " Patrick Wilson, Vera Farmiga, Alfre Woodard, Brian Howe. "
+        "Actores" : " Patrick Wilson, Vera Farmiga, Alfre Woodard, Brian Howe. ",
+        "Comentarios": []
     },
     {
         "img": " https://pics.filmaffinity.com/Top_Gun_Maverick-537976462-large.jpg ",
@@ -60,7 +66,8 @@
         "año" : "2022", 
         "Genero" : " Acción ",
         "Sinopsis" : " Maverick, quien lleva 30 años de servicio, es ahora instructor de pilotos militares. Una última misión, un sacrificio final, obliga a este maestro de los cielos a enfrentar las heridas abiertas del pasado y sus temores más profundos. ",
-        "Actores" : "Tom Cruise, Miles Teller, Jennifer Connelly, Ed Harris."
+        "Actores" : "Tom Cruise, Miles Teller, Jennifer Connelly, Ed Harris.",
+        "Comentarios": []
     },
     {
         "img": " https://es.web.img3.acsta.net/pictures/15/01/21/10/16/138096.jpg ",
@@ -69,7 +76,8 @@
         "año" : " 2015 ", 
         "Genero" : " Romance ",
         "Sinopsis" : " Un estafador veterano ayuda a una joven y atractiva mujer, pero las cosas se complican cuando ellos se involucran románticamente. ",
-        "Actores" : "Will Smith, Margot Robbie, Adrián Martínez, BD Wong. "
+        "Actores" : "Will Smith, Margot Robbie, Adrián Martínez, BD Wong. ",
+        "Comentarios": []
     },
     {
         "img": " https://pics.filmaffinity.com/Pu_ales_por_la_espalda_El_misterio_de_Glass_Onion-428355632-large.jpg ",
@@ -78,7 +86,8 @@
         "año" : " 2022 ", 
         "Genero" : " Misterio ",
         "Sinopsis" : " El detective Benoit Blanc entra en acción cuando el misterioso juego de asesinatos de un multimillonario se sale de control. ",
-        "Actores" : " Daniel Craig, Edward Norton, Dave Bautista, Madelyn Cline. "
+        "Actores" : " Daniel Craig, Edward Norton, Dave Bautista, Madelyn Cline. ",
+        "Comentarios": []
     },
     {
         "img": " https://pics.filmaffinity.com/titanic-321994924-large.jpg ",
@@ -87,6 +96,7 @@
         "año" : " 1997 ", 
         "Genero" : " Drama ",
         "Sinopsis" :" Una joven de la alta sociedad abandona a su arrogante pretendiente por un artista humilde en el trasatlántico que se hundió durante su viaje inaugural. ",
-        "Actores" : " Leonardo DiCaprio, Kate Winslet, Billy Zane, Gloria Stuart. "
+        "Actores" : " Leonardo DiCaprio, Kate Winslet, Billy Zane, Gloria Stuart. ",
+        "Comentarios": []
     }
 ]

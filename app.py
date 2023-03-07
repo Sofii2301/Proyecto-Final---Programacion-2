@@ -54,7 +54,7 @@ def confirm():
         for i in pelis_data:
             if i["Director"] == directores:
                 return redirect(url_for("buscar_directores", director=i["Director"]))
-    return "no se encontraron directores" 
+    return render_template("error.html",dato=directores) 
 @app.route("/buscarDirectores",methods=["POST","GET"])
 def buscar_directores():
     director1 = request.args.get('director')
@@ -67,7 +67,7 @@ def confirm_peliculas():
         for i in pelis_data:
             if i["Titulo"] == titulo:
                 return redirect(url_for("buscar_peliculas", titulo=i["Titulo"]))
-    return "no se encontro el titulo" 
+    return render_template("error.html",dato=titulo) 
 @app.route("/buscarPeliculas")
 def buscar_peliculas():
     titulo1=request.args.get('titulo')
@@ -80,7 +80,7 @@ def confirm_actores():
         for i in pelis_data:
             if i["Actores"] == actores:
                 return redirect(url_for("buscar_actores", actor=i["Actores"]))
-    return "no se encontro al actor"
+    return render_template("error.html",dato=actores) 
 @app.route("/buscarActores")
 def buscar_actores():
     actor1=request.args.get('actor')

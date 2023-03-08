@@ -2,10 +2,11 @@
 
 {% block content%}
 
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilos_agregarPeli.css' )}}">
 <div>
     <h1 id="h1_editar">{{peli}}</h1>
     <form action="/editar/{{peli}}", method="post" id="boton_editar">
-        <h2 id="agregar"> Agregar Película </h2>
+        <h2 id="agregar"> Editar Película </h2>
             <div id="agregar">
                 <label for="titulo"> Título de la película: </label>
                 <input type="text" name="titulo" autofocus>
@@ -22,7 +23,9 @@
                 <label for="sinopsis"> Sinopsis: </label>
                 <input type="text" name="sinopsis">
             </div>
-        <button type="submit" id="button_editar">Editar</button>
+            <div id="agregar">
+            <button type="submit" id="boton_enviar"> Editar </button>
+            </div>
     </form>  
 </div>
 

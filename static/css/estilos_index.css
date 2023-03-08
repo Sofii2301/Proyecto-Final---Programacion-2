@@ -39,6 +39,7 @@ a {
     font-weight: bold;
 }
 
+/* estilos botones */
 .barra_navegacion {
     display: flex;
     justify-content: space-between;
@@ -92,21 +93,68 @@ button {
     height: 35px;
     margin-right: 7px;
 }
+
 #boton_eliminar{
     display: flex;
     justify-content: center;
 }
+
 #button_eliminar{
-    width: 225px;
-    height: 60px;
-    font-size: 30px;
+    width: 115px;
+    height: 50px;
+    font-size: 20px;
+    background-color: #c00000;
 }
+
+#boton_opc_eliminar {
+    border-radius: 5px;
+    color: white;
+    background-color: #c00000;
+    border-style: hidden;
+    cursor: pointer;
+    padding: 5px;
+}
+
 #eliminar{
-    padding: 10px;
+    padding: 5px;
 }
+
 #h1_eliminar{
-   margin: 30px; 
+    margin: 30px;
+    font-size: 34px; 
+ }
+
+#editar {
+    padding: 5px;
 }
+
+#h1_editar {
+    display: flex;
+    flex-direction: row;
+    margin: 24px;
+    margin-left: 8px;
+    margin-bottom: 8px;
+    font-size: 34px;
+}
+
+#boton_opc_editar {
+    border-radius: 5px;
+    color:white;
+    background-color: #6f54e2;
+    border-style: hidden;
+    cursor: pointer;
+    padding: 5px;
+}
+
+#boton-pelisDire {
+    border-radius: 5px;
+    color:white;
+    background-color: #6f54e2;
+    border-style: hidden;
+    cursor: pointer;
+    padding: 5px;
+}
+
 .boton-barra-buscar {
     width: 80px;
     height: 35px;
@@ -158,7 +206,7 @@ article {
     padding-left: 20px;
 }
 
-/* estilo footer */
+/* estilos footer */
 footer {
     display: flex;
     flex-direction: column;

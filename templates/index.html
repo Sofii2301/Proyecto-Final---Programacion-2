@@ -63,7 +63,7 @@
             <div id="contenedor-central">
                 <main>
                     <!-- para las peliculas -->
-                    {% for datos in peliculas %}
+                    {% for datos in peliculas[peliculas|length-10:] %}
                     <article>
                         <div id="img">
                             <img src=" {{ datos ['img'] }} " alt="imagen" width="200px" height="300px">

@@ -94,16 +94,17 @@ def confirm_agregar():
         titulo=request.form["titulo"]
         titulo=titulo.title()
         sinopsis=request.form["sinopsis"]
-        sinopsis=sinopsis.title()
         director=request.form["director"]
         año=request.form["anio"]
         genero=request.form["genero"]
         actores=request.form["actores"]
+        actores=actores.title()
+        imagen=request.form['imagen']
         for i in pelis_data:
             if i["Titulo"] == titulo:
                 return "ya existe esta pelicula"
         confirmacion="S"
-        return redirect(url_for('agregar',titulo=titulo,director=director,año=año,genero=genero,sinopsis=sinopsis,actores=actores,confirmacion=confirmacion))
+        return redirect(url_for('agregar',titulo=titulo,director=director,año=año,genero=genero,sinopsis=sinopsis,actores=actores,confirmacion=confirmacion, imagen=imagen))
 @app.route("/agregarPeli", methods=['GET', 'POST'])
 def agregar():
     peli_agregar=request.args.get("confirmacion")
@@ -113,13 +114,14 @@ def agregar():
     genero1=request.args.get("genero")
     sinopsis=request.args.get("sinopsis")
     actores=request.args.get("actores")
+    imagen=request.args.get("imagen")
     director=[]
     genero=[]
     if 'user' not in session: 
         return redirect(url_for('home'))
     if peli_agregar == 'S':
         pelicula = {
-            "img":  "",
+            "img":  imagen,
             "Titulo": titulo, 
             "Director": director1, 
             "año" : año, 

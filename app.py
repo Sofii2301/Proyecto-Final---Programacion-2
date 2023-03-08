@@ -158,6 +158,24 @@ def eliminarPeli(peli):
             return redirect(url_for('home'))
     return render_template('eliminarPeli.html',name=usuario(), peli=peli)
 
+@app.route('/editar/<peli>', methods=["GET","POST"])
+def editarPeli(peli):
+    if 'user' not in session:
+        return redirect(url_for('index'))
+    else:
+        if request.method == "POST":
+            for pelicula in pelis_data:
+                if pelicula['Titulo']==peli:
+                    if request.form.get('titulo') != "":
+                        peli['Titulo']=request.form.get('titulo')
+                    if request.form.get("imagen") != "":
+                        peli['img']=request.form.get("imagen")
+                    if request.form.get("anio") != "":
+                        peli['año']=request.form.get("anio")
+                    if request.form.get("sinopsis") != "":
+                        peli['Sinopsis']=request.form.get("sinopsis")
+    return render_template('editarPeli.html',name=usuario(), peli=peli)
+
 @app.route('/logout')
 def logout():
   session.pop('user', None)

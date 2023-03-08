@@ -84,11 +84,18 @@
                             <h4>Comentarios: {{ datos ['Comentarios'] }}</h4> 
                         </div>
                         {% if name != '' %}
+                        <div id="editar">
+                            <div>
+                                <form action="/editar/{{ datos ['Titulo'] }}">
+                                    <input type="submit" value="Editar">
+                                </form>
+                              </div>
+                        </div>
                         {% if datos['Comentarios'] == '' %}
                         <div id="eliminar">
                             <div>
                                 <form action="/eliminar/{{ datos ['Titulo'] }}">
-                                    <input type="submit" value="Eliminar {{datos ['Titulo']}}">
+                                    <input type="submit" value="Eliminar">
                                 </form>
                               </div>
                         </div>

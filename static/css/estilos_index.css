@@ -67,6 +67,22 @@ button {
     margin: 2.5px;
 }
 
+#botones_barra_der {
+    display: flex;
+}
+
+#botones_logueado {
+    display: flex;
+    margin-left: 7px;
+    border-left: 1.5mm solid rgb(0, 130, 255);
+}
+
+.boton-barra-logueado {
+    width: 80px;
+    height: 35px;
+    margin-left: 7px;
+}
+
 #botones_barra_izq {
     display: flex;
 }

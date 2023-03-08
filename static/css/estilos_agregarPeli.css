@@ -1,0 +1,20 @@
+#agregar {
+    margin: 5px;
+    padding: 5px;
+}
+
+#id_agregar {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+#boton_enviar {
+    border-radius: 5px;
+    color:white;
+    background-color: #6f54e2;
+    border-style: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 7px;
+}

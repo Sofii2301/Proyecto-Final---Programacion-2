@@ -35,25 +35,30 @@
                             </button>
                         </div>
 
-                        {% if name != '' %}
-                        <button class="boton-barra">
-                            <a href="{{url_for('agregar')}}"> Agregar Película </a>
-                        </button>
-                        <button class="boton-barra">
-                            <a href="{{url_for('logout')}}"> Cerrar Sesion </a>
-                        </button>
-                        {% endif %}
-                        <div id="botones_buscar" >
-                            <button class="boton-barra-buscar">
-                                <a href="{{url_for('buscar_directores')}}"> Buscar directores </a>
-                            </button>
-                            <button class="boton-barra-buscar">
-                                <a href="{{url_for('buscar_peliculas')}}"> Buscar películas </a>
-                            </button>
-                            <button class="boton-barra-buscar">
-                                <a href="{{url_for('buscar_actores')}}"> Buscar actores </a>
-                            </button>
-                        </div>
+                        <div id="botones_barra_der">
+                            <div id="botones_buscar" >
+                                <button class="boton-barra-buscar">
+                                    <a href="{{url_for('buscar_directores')}}"> Buscar directores </a>
+                                </button>
+                                <button class="boton-barra-buscar">
+                                    <a href="{{url_for('buscar_peliculas')}}"> Buscar películas </a>
+                                </button>
+                                <button class="boton-barra-buscar">
+                                    <a href="{{url_for('buscar_actores')}}"> Buscar actores </a>
+                                </button>
+                            </div>
+                        
+                            {% if name != '' %}
+                            <div id="botones_logueado">
+                                <button class="boton-barra-logueado">
+                                    <a href="{{url_for('agregar')}}"> Agregar Película </a>
+                                </button>
+                                <button class="boton-barra-logueado">
+                                    <a href="{{url_for('logout')}}"> Cerrar Sesion </a>
+                                </button>
+                            </div>
+                            {% endif %}
+                        </div> 
                     </div>
                 </nav>
             </header>

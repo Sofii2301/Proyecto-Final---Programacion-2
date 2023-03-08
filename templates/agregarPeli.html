@@ -1,52 +1,59 @@
 {% extends './index.html' %}
 
 {% block content %}
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilos_agregarPeli.css' )}}">
 <div id="contenedor-central">
     <main>
         <form method="POST" action="/confirmar_agregar">
-            <div>
-                <label for="titulo">Titulo de la pelicula:</label>
-                <input type="text" name="titulo" required autofocus>
-            </div>
-            <div>
-                <label for="imagen">Imagen:</label>
-                <input type="url" name="imagen" required placeholder="Link de imágen">
-            </div>
-            <div>
-                <label for="anio">Anio:</label>
-                <input type="text" name="anio" required>
-            </div>
-            <div>
-                <label for="opinion">Tu opinion</label>
-                <input type="text" name="opinion">
-            </div>
-            <div>
-                <label for="sinopsis">Sinopsis</label>
-                <input type="text" name="sinopsis" required>
-            </div>
-            <div>
-                <label for="director">Directores disponibles</label>
-                <select name="director" required>
-                    <option value="">Director</option>
-                    {% for director in directores %}
-                        <option value="{{director}}">{{director}}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div>
-                <label for="genero">Generos disponibles</label>
-                <select name="genero" required>
-                    <option value="">Género</option>
-                    {% for genero in generos %}
-                        <option value="{{genero}}">{{genero}}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div>
-                <label for="actores">Actores</label>
-                <input type="text" name="actores">
-            </div>
-            <input type="submit">
+            <div id="id_agregar">
+                <h2 id="agregar"> Agregar Película </h2>
+                <div id="agregar">
+                    <label for="titulo"> Título de la película: </label>
+                    <input type="text" name="titulo" required autofocus>
+                </div>
+                <div id="agregar">
+                    <label for="imagen"> Imágen: </label>
+                    <input type="url" name="imagen" required placeholder="Link de imágen">
+                </div>
+                <div id="agregar">
+                    <label for="anio"> Año: </label>
+                    <input type="text" name="anio" required>
+                </div>
+                <div id="agregar">
+                    <label for="opinion"> Tu opinión: </label>
+                    <input type="text" name="opinion">
+                </div>
+                <div id="agregar">
+                    <label for="sinopsis"> Sinopsis: </label>
+                    <input type="text" name="sinopsis" required>
+                </div>
+                <div id="agregar">
+                    <label for="director"> Directores disponibles: </label>
+                    <select name="director" required>
+                        <option value="">Director</option>
+                        {% for director in directores %}
+                            <option value="{{director}}">{{director}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div id="agregar">
+                    <label for="genero"> Géneros disponibles: </label>
+                    <select name="genero" required>
+                        <option value="">Género</option>
+                        {% for genero in generos %}
+                            <option value="{{genero}}">{{genero}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div id="agregar">
+                    <label for="actores"> Actores: </label>
+                    <input type="text" name="actores">
+                </div>
+                <div id="agregar">
+                    <input type="submit" id="boton_enviar">
+                </div>
+            </div>    
         </form>
         <footer>
             &copy Películas SBE

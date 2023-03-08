@@ -3,8 +3,11 @@
 {% block content%}
 <main>
     {% for datos in peliculas %}
-            <article>
-                <h3> Director: {{ datos ['Director'] }} </h3>
+            <article id="directores">
+                <form method="POST" action="/peliculas/{{ datos ['Director'] }}" >
+                    <p id="director">Director: {{ datos ['Director'] }}</p>
+                    <input type="submit" value="Peliculas" id="boton-pelisDire"> 
+                </form>
             </article> 
     {% endfor %}
 </main>

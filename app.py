@@ -176,6 +176,15 @@ def editarPeli(peli):
                         peli['Sinopsis']=request.form.get("sinopsis")
     return render_template('editarPeli.html',name=usuario(), peli=peli)
 
+@app.route('/peliculas/<director>', methods=["GET","POST"])
+def pelisDire(director):
+    peliculas = []
+    if request.method == "POST":
+        for pelicula in pelis_data:
+            if pelicula['Director']==director:
+                peliculas.append(pelicula)
+    return render_template("pelisDire.html",name=usuario(), director=director, peliculas=pelis_data)
+
 @app.route('/logout')
 def logout():
   session.pop('user', None)

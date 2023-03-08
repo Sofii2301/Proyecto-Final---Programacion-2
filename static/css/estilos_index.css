@@ -92,7 +92,21 @@ button {
     height: 35px;
     margin-right: 7px;
 }
-
+#boton_eliminar{
+    display: flex;
+    justify-content: center;
+}
+#button_eliminar{
+    width: 225px;
+    height: 60px;
+    font-size: 30px;
+}
+#eliminar{
+    padding: 10px;
+}
+#h1_eliminar{
+   margin: 30px; 
+}
 .boton-barra-buscar {
     width: 80px;
     height: 35px;

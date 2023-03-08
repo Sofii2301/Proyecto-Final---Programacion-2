@@ -14,7 +14,7 @@
                 </div>
                 <div id="agregar">
                     <label for="imagen"> Imágen: </label>
-                    <input type="url" name="imagen" required placeholder="Link de imágen">
+                    <input type="url" name="imagen">
                 </div>
                 <div id="agregar">
                     <label for="anio"> Año: </label>
@@ -22,36 +22,26 @@
                 </div>
                 <div id="agregar">
                     <label for="opinion"> Tu opinión: </label>
-                    <input type="text" name="opinion">
+                    <input type="text" name="opinion" required>
                 </div>
                 <div id="agregar">
                     <label for="sinopsis"> Sinopsis: </label>
                     <input type="text" name="sinopsis" required>
                 </div>
                 <div id="agregar">
-                    <label for="director"> Directores disponibles: </label>
-                    <select name="director" required>
-                        <option value="">Director</option>
-                        {% for director in directores %}
-                            <option value="{{director}}">{{director}}</option>
-                        {% endfor %}
-                    </select>
+                    <label for="director"> Directores </label>
+                    <input type="text" name="director">
                 </div>
                 <div id="agregar">
-                    <label for="genero"> Géneros disponibles: </label>
-                    <select name="genero" required>
-                        <option value="">Género</option>
-                        {% for genero in generos %}
-                            <option value="{{genero}}">{{genero}}</option>
-                        {% endfor %}
-                    </select>
+                    <label for="genero"> Géneros: </label>
+                    <input type="text" name="genero" required>
                 </div>
                 <div id="agregar">
                     <label for="actores"> Actores: </label>
-                    <input type="text" name="actores">
+                    <input type="text" name="actores" required>
                 </div>
                 <div>
-                    <label for="puntuacion">Puntuacion</label>
+                    <label for="puntuacion"> Puntuación: </label>
                     <input type="number" name="puntuacion" required max="10" min="0">
                 </div>
                 <div id="agregar">

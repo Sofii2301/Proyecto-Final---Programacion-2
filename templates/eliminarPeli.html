@@ -2,9 +2,9 @@
 
 {% block content %}
 <div id="eliminar">
-    <h1>{{peli}}</h1>
-    <form action="/eliminar/{{peli}}", method="post">
-        <button type="submit">Eliminar</button>
+    <h1 id="h1_eliminar">{{peli}}</h1>
+    <form action="/eliminar/{{peli}}", method="post" id="boton_eliminar">
+        <button type="submit" id="button_eliminar">Eliminar</button>
     </form>  
 </div>
 {% endblock %}

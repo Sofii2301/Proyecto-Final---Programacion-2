@@ -101,7 +101,6 @@ def confirm_agregar():
         actores=actores.title()
         imagen=request.form['imagen']
         comentario=request.form["opinion"]
-        comentario=comentario.title()
         for i in pelis_data:
             if i["Titulo"] == titulo:
                 return "ya existe esta pelicula"
@@ -141,14 +140,25 @@ def agregar():
                 }
             ]
         }
-        
-        
+
         pelis_data.append(pelicula)
         
     for datos in pelis_data:
         director.append(datos['Director'])
         genero.append(datos['Genero'])    
     return render_template('agregarPeli.html',name=usuario(), directores=director, generos=genero)
+
+@app.route('/eliminar/<peli>', methods=["GET","POST"])
+def eliminarPeli(peli):
+    if 'user' not in session:
+        return redirect(url_for('index'))
+    else:
+        if request.method == "POST":
+            for pelicula in pelis_data:
+                if pelicula['Titulo']==peli:
+                    pelis_data.remove(pelicula)
+            return redirect(url_for('home'))
+    return render_template('eliminarPeli.html',name=usuario(), peli=peli)
 
 @app.route('/logout')
 def logout():

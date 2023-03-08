@@ -77,11 +77,18 @@
                             <h4> Actores: {{ datos ['Actores'] }} </h4> 
                             <p>Comentarios: {{ datos['Comentarios']}}</p>
                         </div>
-                            
+                        {% if name != '' %}
+                        <div id="eliminar">
+                            <div>
+                                <form action="/eliminar/{{ datos ['Titulo'] }}">
+                                    <input type="submit" value="Eliminar {{datos ['Titulo']}}">
+                                </form>
+                              </div>
+                        </div>
+                        {% endif %}    
                     </article>
                     {% endfor %}
                 </main>
-
                 <footer>
                     <p> Cantidad de visitas en la página: {{ visitas }} </p>
                     &copy Películas SBE

@@ -1,0 +1,10 @@
+{% extends './index.html' %}
+
+{% block content %}
+<div id="eliminar">
+    <h1>{{peli}}</h1>
+    <form action="/eliminar/{{peli}}", method="post">
+        <button type="submit">Eliminar</button>
+    </form>  
+</div>
+{% endblock %}

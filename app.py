@@ -136,12 +136,7 @@ def agregar():
             "Sinopsis" :sinopsis,
             "Actores" : actores,
             "Puntuacion":puntuacion,
-            "Comentarios":[
-                {
-                    "Usuario":session["user"],
-                    "Comentario":comentario
-                }
-            ]
+            "Comentarios":comentario
         }
 
         pelis_data.append(pelicula)

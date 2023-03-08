@@ -157,7 +157,6 @@ def eliminarPeli(peli):
                     pelis_data.remove(pelicula)
             return redirect(url_for('home'))
     return render_template('eliminarPeli.html',name=usuario(), peli=peli)
-
 @app.route('/editar/<peli>', methods=["GET","POST"])
 def editarPeli(peli):
     if 'user' not in session:
@@ -167,13 +166,13 @@ def editarPeli(peli):
             for pelicula in pelis_data:
                 if pelicula['Titulo']==peli:
                     if request.form.get('titulo') != "":
-                        peli['Titulo']=request.form.get('titulo')
+                        pelicula['Titulo']=request.form.get('titulo')
                     if request.form.get("imagen") != "":
-                        peli['img']=request.form.get("imagen")
+                        pelicula['img']=request.form.get("imagen")
                     if request.form.get("anio") != "":
-                        peli['año']=request.form.get("anio")
+                        pelicula['año']=request.form.get("anio")
                     if request.form.get("sinopsis") != "":
-                        peli['Sinopsis']=request.form.get("sinopsis")
+                        pelicula['Sinopsis']=request.form.get("sinopsis")
     return render_template('editarPeli.html',name=usuario(), peli=peli)
 
 @app.route('/peliculas/<director>', methods=["GET","POST"])

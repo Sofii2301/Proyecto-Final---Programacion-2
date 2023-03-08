@@ -101,13 +101,14 @@ def confirm_agregar():
         actores=actores.title()
         imagen=request.form['imagen']
         comentario=request.form["opinion"]
+        puntuacion=request.form["puntuacion"]
         for i in pelis_data:
             if i["Titulo"] == titulo:
                 return "ya existe esta pelicula"
         confirmacion="S"
         return redirect(url_for('agregar',titulo=titulo,director=director,año=año,genero=genero,
                                 sinopsis=sinopsis,actores=actores,confirmacion=confirmacion,imagen=imagen,
-                                comentario=comentario
+                                comentario=comentario,puntuacion=puntuacion
                                 ))
 @app.route("/agregarPeli", methods=['GET', 'POST'])
 def agregar():
@@ -120,6 +121,7 @@ def agregar():
     actores=request.args.get("actores")
     imagen=request.args.get("imagen")
     comentario=request.args.get("comentario")
+    puntuacion=request.args.get("puntuacion")
     director=[]
     genero=[]
     if 'user' not in session: 
@@ -133,6 +135,7 @@ def agregar():
             "Genero" : genero1,
             "Sinopsis" :sinopsis,
             "Actores" : actores,
+            "Puntuacion":puntuacion,
             "Comentarios":[
                 {
                     "Usuario":session["user"],

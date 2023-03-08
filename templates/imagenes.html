@@ -1,17 +1,31 @@
 {% extends "index.html" %}
 
 {% block content%}
-{% for datos in peliculas %}
-    {% if datos['img'] == "" %}
-    <article>
-        <a> Imágen:{{ datos['img'] }}</a>
-        <h2> {{ datos ['Titulo'] }} </h2>
-        <h3> Director: {{ datos ['Director'] }} </h3>
-        <h3> Año: {{datos ['año']  }} </h3>
-        <h3> Género: {{datos ['Genero'] }} </h3>
-        <p> Sinopsis: {{datos ['Sinopsis']}} </p> 
-        <h4> Actores: {{ datos ['Actores'] }} </h4> 
-    </article>
-    {%endif%}
-{% endfor %}
+<div id="contenedor-central">
+    <main>
+        <!-- para las peliculas -->
+        {% for datos in peliculas %}
+            {% if datos['img'] == "" %}
+                <article>
+                    <div id="img">
+                        <img src=" {{ datos ['img'] }} " alt="imagen" width="200px" height="300px">
+                    </div>
+                    <div id="info">
+                        <h2> {{ datos ['Titulo'] }} </h2>
+                        <h3> Director: {{ datos ['Director'] }} </h3>
+                        <h3> Año: {{datos ['año']  }} </h3>
+                        <h3> Género: {{datos ['Genero'] }} </h3>
+                        <p id="id_sinopsis" > Sinopsis: </p> <p> {{ datos ['Sinopsis'] }} </p>
+                         <h4> Actores: {{ datos ['Actores'] }} </h4>
+                        <h4> Puntuacion: {{ datos ['Puntuacion'] }} </h4>  
+                        <p> Comentarios:{{ datos['Comentarios'] }} </p>
+                    </div>
+                </article>
+            {% endif %} 
+        {% endfor %}
+    </main>
+    <footer>
+        &copy Películas SBE
+    </footer>
+</div>
 {% endblock %}

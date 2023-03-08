@@ -179,6 +179,19 @@ def editarPeli(peli):
                         pelicula["Genero"] = request.form.get("genero")
                     if request.form["puntuacion"] != "":
                         pelicula["Puntuacion"] = request.form.get("puntuacion")
+                    if request.form["comentario"] != "":
+                        comentario=request.form.get("comentario")
+                        comentarios= pelicula["Comentarios"]
+                        if type (comentario) == str:
+                            comentarios= comentarios.split(',')
+                        user=",usuario "
+                        name=usuario()
+                        user=user+name
+                        user=user+":"
+                        comentarios.append(user)
+                        comentarios.append(comentario)
+                        string="".join(comentarios)
+                        pelicula["Comentarios"]=string
 
     return render_template('editarPeli.html',name=usuario(), peli=peli)
 

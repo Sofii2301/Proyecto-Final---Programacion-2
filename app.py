@@ -38,7 +38,7 @@ def form():
             if i["nombre"]==request.form["username"] and i["contrasenia"] == request.form["password"]:
                 session["user"]=i["nombre"]
                 return redirect(url_for("home"))
-        return "Usuario o contrasenia incorrectos"   
+        return render_template("errorUsuario.html", name=usuario())  
 
 @app.route("/directores")
 def directores():

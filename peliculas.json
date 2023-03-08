@@ -1,7 +1,7 @@
 [
     {
         "img": " https://www.lavanguardia.com/peliculas-series/images/movie/poster/2006/12/w1280/qF6JFr6IdfNep0x6yw3i7S8avAb.jpg ",
-        "Titulo": "En busca de la felicidad", 
+        "Titulo": "En Busca De La Felicidad", 
         "Director": "Grabiele Muccino", 
         "año" : " 2006 ", 
         "Genero" : " Drama ",
@@ -12,7 +12,7 @@
     },
     {
         "img": " https://pics.filmaffinity.com/Regreso_al_futuro-139415628-large.jpg ",
-        "Titulo": "Volver al futuro",
+        "Titulo": "Volver Al Futuro",
         "Director": "Robert Zemeckis", 
         "año" : " 1985 ", 
         "Genero" : " Ciencia ficción ",
@@ -23,7 +23,7 @@
     },
     {
         "img":" https://pics.filmaffinity.com/Up_una_aventura_de_altura-672315222-large.jpg ",
-        "Titulo": "Up: una aventura de altura",
+        "Titulo": "Up: Una Aventura De Altura",
         "Director": "Pete Docter", 
         "año" : " 2009 ", 
         "Genero" : " Animación ",
@@ -34,7 +34,7 @@
     },
     {
         "img": " https://pics.filmaffinity.com/Eduardo_Manostijeras-367797250-large.jpg ",
-        "Titulo": "El joven manos de tijeras",
+        "Titulo": "El Joven Manos De Tijeras",
         "Director": "Tim Burton", 
         "año" : " 1990 ", 
         "Genero" : " Fantasía ",
@@ -45,7 +45,7 @@
     },
     {
         "img": " https://pics.filmaffinity.com/Relatos_salvajes-102488639-large.jpg ",
-        "Titulo": "Relatos salvajes",
+        "Titulo": "Relatos Salvajes",
         "Director": "Damian Szifrón", 
         "año" : "2014", 
         "Genero" : "Comedia",

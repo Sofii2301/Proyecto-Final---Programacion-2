@@ -187,6 +187,12 @@ button {
     margin-right: 5px;
 }
 
+#mensaje_error {
+    display: flex;
+    justify-content: center;
+    color: #c00000;
+}
+
 /* estilos peliculas */
 main {
     display: flex;

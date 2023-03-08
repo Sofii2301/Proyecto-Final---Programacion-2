@@ -173,6 +173,13 @@ def editarPeli(peli):
                         pelicula['año']=request.form.get("anio")
                     if request.form.get("sinopsis") != "":
                         pelicula['Sinopsis']=request.form.get("sinopsis")
+                    if request.form["director"] != "":
+                        pelicula["Director"]=request.form.get("director")
+                    if request.form["genero"] != "":
+                        pelicula["Genero"] = request.form.get("genero")
+                    if request.form["puntuacion"] != "":
+                        pelicula["Puntuacion"] = request.form.get("puntuacion")
+
     return render_template('editarPeli.html',name=usuario(), peli=peli)
 
 @app.route('/peliculas/<director>', methods=["GET","POST"])

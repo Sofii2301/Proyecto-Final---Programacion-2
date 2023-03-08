@@ -68,6 +68,17 @@ button {
     margin: 2.5px;
 }
 
+#span_inicio {
+    display: flex;
+    justify-content: center;
+}
+
+.boton-barra-inicio {
+    width: auto;
+    height: 35px;
+    margin-right: 7px;
+}
+
 #botones_barra_der {
     display: flex;
 }

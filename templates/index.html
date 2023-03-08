@@ -21,8 +21,12 @@
                     <h1> Pelis SBE </h1>
                     <div class="barra_navegacion">
                         <div id="botones_barra_izq">
-                            <button class="boton-barra">
-                                <a href="{{url_for('home')}}"> Inicio </a>
+                            <button class="boton-barra-inicio">
+                                <a href="{{url_for('home')}}"> 
+                                    <span class="material-symbols-outlined" id="span_inicio">
+                                        home
+                                    </span>
+                                </a>
                             </button>
                             <button class="boton-barra">
                                 <a href="{{url_for('directores')}}"> Directores </a>

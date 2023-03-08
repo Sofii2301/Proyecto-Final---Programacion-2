@@ -63,7 +63,7 @@
             <div id="contenedor-central">
                 <main>
                     <!-- para las peliculas -->
-                    {% for datos in peliculas[peliculas|length-10:] %}
+                    {% for datos in peliculas[peliculas|length-10:]|reverse %}
                     <article>
                         <div id="img">
                             <img src=" {{ datos ['img'] }} " alt="imagen" width="200px" height="300px">
@@ -75,6 +75,7 @@
                             <h3> Género: {{ datos ['Genero'] }} </h3>
                             <p id="id_sinopsis" > Sinopsis: </p> <p> {{ datos ['Sinopsis'] }} </p>
                             <h4> Actores: {{ datos ['Actores'] }} </h4> 
+                            <p>Comentarios: {{ datos['Comentarios']}}</p>
                         </div>
                             
                     </article>

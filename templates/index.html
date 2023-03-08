@@ -84,6 +84,7 @@
                             <p>Comentarios: {{ datos['Comentarios']}}</p>
                         </div>
                         {% if name != '' %}
+                        {% if datos["Comentario"] == "" %}
                         <div id="eliminar">
                             <div>
                                 <form action="/eliminar/{{ datos ['Titulo'] }}">
@@ -91,6 +92,7 @@
                                 </form>
                               </div>
                         </div>
+                        {% endif %}
                         {% endif %}    
                     </article>
                     {% endfor %}

@@ -199,7 +199,15 @@ main {
     flex-direction: column;
     flex-wrap: wrap;
 }
+#img {
+    display: flex;
+    align-items: center;
+    height: 310px;
+}
 
+#titulo_peli {
+    margin-top: 0px;
+}
 #contenedor-central {
     display: flex;
     flex-direction: column;

@@ -1,0 +1,13 @@
+{% extends "index.html" %}
+{% block content%}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilos_perfil.css' )}}">
+<div id="div_perfil">
+    <form action="/crear_usuario" method="post" id="crear"> 
+        <label for="username"> Usuario: </label>
+        <input type="text"  name="username" required autofocus id="input_ingresar">
+        <label for="password"> Contraseña: </label>
+        <input type="password"  name="password" required id="input_ingresar">
+        <button type="sumbit" id="crear_usuario"> Crear Usuario </button>
+    </form> 
+</div>
+{% endblock %}

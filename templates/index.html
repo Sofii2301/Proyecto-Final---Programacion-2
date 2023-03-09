@@ -50,6 +50,11 @@
                                 <button class="boton-barra-buscar">
                                     <a href="{{url_for('buscar_actores')}}"> Buscar actores </a>
                                 </button>
+                                {% if name == '' %}
+                                <button class="boton-barra-buscar">
+                                    <a href="{{url_for('crear_usuario')}}"> Crear usuario </a>
+                                </button>
+                                {% endif %}
                             </div>
                         
                             {% if name != '' %}
@@ -78,7 +83,7 @@
                             <img src=" {{ datos ['img'] }} " alt="imagen" width="200px" height="300px">
                         </div>
                         <div id="info">
-                            <h2> {{ datos ['Titulo'] }} </h2>
+                            <h2 id="titulo_peli"> {{ datos ['Titulo'] }} </h2>
                             <h3> Director: {{ datos ['Director'] }} </h3>
                             <h3> Año: {{ datos ['año'] }} </h3>
                             <h3> Género: {{ datos ['Genero'] }} </h3>

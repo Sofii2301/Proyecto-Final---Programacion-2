@@ -145,7 +145,21 @@ def agregar():
         director.append(datos['Director'])
         genero.append(datos['Genero'])    
     return render_template('agregarPeli.html',name=usuario(), directores=director, generos=genero)
-
+@app.route("/crear_usuario", methods=["GET","POST"])
+def crear_usuario():
+    if request.method == "POST":
+        for i in (usuarios_data):
+            if i["nombre"]==request.form["username"]:
+                return "el usuario ya existe"
+        nuevo_usuario = {
+                "id" : "6",
+                "nombre": request.form["username"],
+                "contrasenia": request.form["password"]
+            }
+        usuarios_data.append(nuevo_usuario)
+        return redirect (url_for("home"))
+    return render_template("crearUsuario.html",name=usuario())
+@app.route("/eliminar_usuario",methods=["GET","POST"])
 @app.route('/eliminar/<peli>', methods=["GET","POST"])
 def eliminarPeli(peli):
     if 'user' not in session:

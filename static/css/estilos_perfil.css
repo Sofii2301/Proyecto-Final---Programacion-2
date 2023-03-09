@@ -18,3 +18,14 @@
     padding: 6px;
     margin-left: 3px;
 }
+
+#crear {
+    display: flex;
+    align-items: baseline;
+    margin: 20px;
+}
+
+#crear_usuario {
+    padding: 6px;
+    margin-left: 3px;
+}

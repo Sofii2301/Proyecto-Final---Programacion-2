@@ -1,5 +1,7 @@
 {% extends "index.html" %}
+
 {% block content%}
+
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilos_perfil.css' )}}">
 <div id="div_perfil">
     <form action="/crear_usuario" method="post" id="crear"> 
@@ -10,4 +12,5 @@
         <button type="sumbit" id="crear_usuario"> Crear Usuario </button>
     </form> 
 </div>
+
 {% endblock %}

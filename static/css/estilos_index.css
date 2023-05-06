@@ -60,6 +60,7 @@ button {
     padding: 5px;
     width: auto;
     height: auto;
+    border: 1mm solid rgb(0, 130, 255);
 }
 
 #span_perfil {
@@ -77,6 +78,13 @@ button {
     width: auto;
     height: 35px;
     margin-right: 7px;
+    border: 1mm solid rgb(0, 130, 255);
+}
+
+#nombre_usuario {
+    display: flex;
+    align-items: center;
+    height: 1px;
 }
 
 #botones_barra_der {
@@ -85,14 +93,13 @@ button {
 
 #botones_logueado {
     display: flex;
-    margin-left: 7px;
-    border-left: 1.5mm solid rgb(0, 130, 255);
 }
 
 .boton-barra-logueado {
-    width: 80px;
+    width: auto;
     height: 35px;
     margin-left: 7px;
+    border: 1mm solid rgb(0, 130, 255);
 }
 
 #botones_barra_izq {
@@ -170,6 +177,13 @@ button {
     width: 80px;
     height: 35px;
     margin-left: 7px;
+}
+
+.boton-barra-crear {
+    width: 105px;
+    height: auto;
+    margin-left: 7px;
+    border: 1mm solid rgb(0, 130, 255);
 }
 
 #botones_buscar {

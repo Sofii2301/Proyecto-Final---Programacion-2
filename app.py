@@ -160,6 +160,15 @@ def crear_usuario():
         return redirect (url_for("home"))
     return render_template("crearUsuario.html",name=usuario())
 @app.route("/eliminar_usuario",methods=["GET","POST"])
+def eliminar_usuario():
+    if request.method == "POST":
+        for i in (usuarios_data):
+            if i["nombre"]==request.form["username"]:
+                usuarios_data.remove(i)
+                return redirect(url_for("logout"))
+            else:
+                return "el usuario no existe"
+    return render_template('eliminar_usuario.html',name=usuario())
 @app.route('/eliminar/<peli>', methods=["GET","POST"])
 def eliminarPeli(peli):
     if 'user' not in session:

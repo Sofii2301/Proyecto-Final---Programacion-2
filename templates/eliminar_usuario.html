@@ -1,0 +1,7 @@
+{% extends "index.html" %}
+{% block content%}
+<p> Desea eliminar el usuario {{ name }}</p>
+<form action="/eliminar_usuario" method="post" id="eliminar">
+<button type="submit" id="eliminar_usuario" value="{{ name }}" name="username"  > Si </button>
+</form>
+{% endblock %}

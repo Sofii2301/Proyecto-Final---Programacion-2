@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+{% block content%}
+<form action="/modificar_director" method="post" id="modificar">
+    <select name="director" id="modificar_director">
+        {% for datos in peliculas %}
+        <option> {{ datos ['Director'] }}</option>
+        {% endfor %}
+    </select>
+    <label for="new_director"> Director: </label>
+    <input type="text" name="new_director">
+    <button type="submit" id="modificar_director"> Modificar director </button>
+</form>
+
+{% endblock %}

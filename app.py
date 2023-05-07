@@ -246,7 +246,22 @@ def pelisDire(director):
             if pelicula['Director']==director:
                 peliculas.append(pelicula)
     return render_template("pelisDire.html",name=usuario(), director=director, peliculas=pelis_data)
-
+@app.route('/modificar_director',methods=["GET","POST"])
+def modificar_director():
+    if request.method == "POST":
+        for i in pelis_data:
+            if request.form["director"]==i["Director"]:
+                i["Director"] =request.form["new_director"]
+        return redirect(url_for('home'))
+    return render_template('modificar_director.html',name=usuario(),peliculas=pelis_data)
+@app.route('/modificar_generos',methods=["GET","POST"])
+def modificar_genero():
+    if request.method == "POST":
+        for i in pelis_data:
+            if request.form["genero"] in i["Genero"]:
+                i["Genero"] =request.form["new_genero"]
+        return redirect(url_for('home'))
+    return render_template('modificar_generos.html',name=usuario(),peliculas=pelis_data)
 @app.route('/logout')
 def logout():
   session.pop('user', None)

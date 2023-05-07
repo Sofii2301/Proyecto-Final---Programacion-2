@@ -2,6 +2,13 @@
 
 {% block content%}
 <main>
+{% if name != '' %}
+    <div id="botones_logueado">
+            <button class="boton-barra-logueado">
+                <a href="{{url_for('modificar_genero')}}"> Modificar Genero </a>
+            </button>
+    </div> 
+{% endif %}
     {% for datos in peliculas %}
             <article>
                 <h3>    Género: {{datos ['Genero'] }} </h3>

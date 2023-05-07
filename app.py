@@ -54,9 +54,11 @@ def confirm():
     if request.method == "POST":
         directores=request.form["directores"]
         directores=directores.title()
+        lista=[]
         for i in pelis_data:
-            if i["Director"] == directores:
-                return redirect(url_for("buscar_directores", director=i["Director"]))
+            if directores in i["Director"]:
+                lista.append(i["Director"])
+        return redirect(url_for("buscar_directores", director=lista))
     return error(directores)
 @app.route("/buscarDirectores",methods=["POST","GET"])
 def buscar_directores():
@@ -68,7 +70,7 @@ def confirm_peliculas():
         titulo=request.form["titulo"]
         titulo=titulo.title()
         for i in pelis_data:
-            if i["Titulo"] == titulo:
+            if titulo in i["Titulo"]:
                 return redirect(url_for("buscar_peliculas", titulo=i["Titulo"]))
     return error(titulo)
 @app.route("/buscarPeliculas")
@@ -81,7 +83,7 @@ def confirm_actores():
         actores=request.form["actores"]
         actores=actores.title()
         for i in pelis_data:
-            if i["Actores"] == actores:
+            if actores in i["Actores"]:
                 return redirect(url_for("buscar_actores", actor=i["Actores"]))
     return error(actores)
 @app.route("/buscarActores")
@@ -169,6 +171,24 @@ def eliminar_usuario():
             else:
                 return "el usuario no existe"
     return render_template('eliminar_usuario.html',name=usuario())
+@app.route("/modificar_usuario",methods=["GET","POST"])
+def modificar_usuario():
+    if request.method == "POST":
+        for i in (usuarios_data):
+            if request.form["new_username"] != "":
+                if i["nombre"]==request.form["username"] and i["contrasenia"] == request.form["password"]:
+                    i["nombre"]=request.form["new_username"]
+                    i["contrasenia"]=request.form["new_password"]
+                    return redirect(url_for("home"))
+                else:
+                    return "contraseña invalida"
+            else:
+                if request.form["new_password"] != "":
+                    if i["nombre"]==request.form["username"]:
+                        i["contrasenia"]==request.form["new_password"]
+                    else:
+                        return   "contraseña invalida"
+    return render_template('editar_usuario.html',name=usuario())
 @app.route('/eliminar/<peli>', methods=["GET","POST"])
 def eliminarPeli(peli):
     if 'user' not in session:

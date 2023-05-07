@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+
+{% block content%}
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilos_perfil.css' )}}">
+<div id="div_perfil">
+    <form action="/modificar_usuario" method="post" id="modificar"> 
+        <label for="new_username"> Nuevo Usuario: </label>
+        <input type="text"  name="new_username">
+        <label for="password"> Contraseña: </label>
+        <input type="password"  name="password" required id="input_ingresar">
+        <label for="new_password"> Nueva Contraseña: </label>
+        <input type="password" name="new_password">
+        <button type="submit" id="modificar_usuario" value="{{ name }}" name="username"> Modificar Usuario </button>
+    </form> 
+</div>
+
+{% endblock %}

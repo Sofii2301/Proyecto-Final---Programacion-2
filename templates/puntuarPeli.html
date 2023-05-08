@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+
+{% block content%}
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilos_agregarPeli.css' )}}">
+<div>
+    <h1 id="h1_editar">{{peli}}</h1>
+    <form action="/puntuar/{{peli}}", method="post" id="boton_editar">
+        <h2 id="agregar"> Puntuar Película </h2>
+            <div id="agregar">
+                <label for="puntuacion"> Puntuacion: </label>
+                <input type="number" name="puntuacion" required_max="10" min="0">
+            </div>
+            <div id="agregar">
+            <button type="submit" id="boton_enviar"> Puntuar </button>
+            </div>
+    </form>  
+    <form action="/puntuar/eliminar/{{peli}}" method="post" id="boton_eliminar">
+        <input type="submit" name="Eliminar" value="Eliminar" id="eliminar">
+    </form>
+</div>
+
+{% endblock %}

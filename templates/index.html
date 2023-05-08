@@ -106,6 +106,13 @@
                                 </form>
                               </div>
                         </div>
+                        </div id="puntuar">
+                            <div>
+                                <form action="/puntuar/{{ datos['Titulo']}}">
+                                    <input type="submit" name="Puntuar" value="Puntuar" id="boton_opc_puntuar">
+                                </form>
+                            </div>
+                        <div>
                         {% if datos['Comentarios'] == '' %}
                         <div id="eliminar">
                             <div>
@@ -113,6 +120,7 @@
                                     <input type="submit" value="Eliminar" id="boton_opc_eliminar">
                                 </form>
                               </div>
+
                         </div>
                         {% endif %}
                         {% endif %}    

@@ -242,8 +242,6 @@ def editarPeli(peli):
                         pelicula["Director"]=request.form.get("director")
                     if request.form["genero"] != "":
                         pelicula["Genero"] = request.form.get("genero")
-                    if request.form["puntuacion"] != "":
-                        pelicula["Puntuacion"] = request.form.get("puntuacion")
                     if request.form["comentario"] != "":
                         comentario=request.form.get("comentario")
                         comentarios= pelicula["Comentarios"]
@@ -268,6 +266,103 @@ def pelisDire(director):
             if pelicula['Director']==director:
                 peliculas.append(pelicula)
     return render_template("pelisDire.html",name=usuario(), director=director, peliculas=pelis_data)
+@app.route('/puntuar/<peli>',methods=["GET","POST"])
+def modificarPuntuacion(peli):
+    if 'user' not in session:
+        return redirect(url_for('index'))
+    else:
+        if request.method=="POST":
+            contador=2
+            for pelicula in pelis_data:
+                if pelicula["Titulo"]==peli:
+                    esta=False
+                    if pelicula["Puntuacion usuarios"] != "":
+                        contador=1
+                        comentario=pelicula["Puntuacion usuarios"]
+                        comentario=comentario.split(",")
+                        lista=[]
+                        lista2=[]
+                        for x in comentario:
+                            lista2.append(x)
+                        for usuario1 in usuarios_data:
+                            for i in comentario:
+                                if i == usuario1["nombre"]:
+                                    lista.append(i)
+                        for i in lista:
+                            contador=contador+1
+                        for x in comentario:
+                            if x == usuario():
+                                esta=True
+                                cambiar=x
+                                cambiar=cambiar+","+request.form["puntuacion"]
+                                lista2.remove(x)
+                                continue
+                            if esta == True:
+                                lista2.remove(x)
+                                resultado2=""
+                                for z in lista2:
+                                    resultado2=resultado2+","+str(z)
+                                resultado2=resultado2+","+cambiar
+                                pelicula["Puntuacion usuarios"]=resultado2
+                                break
+                    if request.form["puntuacion"] != "":
+                        puntuacion=pelicula["Puntuacion"]
+                        puntuacion2=request.form["puntuacion"]
+                        puntuacion=int (puntuacion)
+                        puntuacion2=int (puntuacion2)
+                        puntuacion=puntuacion+puntuacion2
+                        puntuacion=puntuacion/contador
+                        pelicula["Puntuacion"]=puntuacion
+                        if esta == False:
+                            usuario2=usuario()
+                            puntuacion2=str(puntuacion2)
+                            combinado=usuario2+","+puntuacion2
+                            resultado=pelicula["Puntuacion usuarios"]
+                            resultado=resultado+","+combinado
+                            pelicula["Puntuacion usuarios"]=resultado
+                                
+    return render_template("puntuarPeli.html",name=usuario(),peli=peli)
+@app.route('/puntuar/eliminar/<peli>',methods=["GET","POST"])
+def eliminarPuntuacion(peli):
+    if request.method=="POST":
+        for pelicula in pelis_data:
+            if pelicula["Titulo"]==peli:
+                esta=False  
+                if pelicula["Puntuacion usuarios"] != "":
+                    contador=0
+                    comentario=pelicula["Puntuacion usuarios"]
+                    comentario=comentario.split(",")
+                    lista2=[]
+                    for x in comentario:
+                        lista2.append(x)
+                    largo=len(lista2)
+                    for z in range(len(lista2)):
+                        if lista2[z] == usuario():
+                            lista2.pop(z)
+                            esta=True
+                            if esta == True:
+                                lista2.pop(z)
+                                break
+                    resultado=""
+                    nota=0
+                    for x in lista2:
+                        print ("x es"+x)
+                        if x.isdigit():
+                            numero=int(x)
+                            contador=contador+1
+                            nota=nota+numero
+                            print("nota es"+str(nota))
+                        resultado=resultado+","+str(x)
+                    nota=nota/contador
+                    pelicula["Puntuacion"]=nota
+                    pelicula["Puntuacion usuarios"]=resultado
+                    return "eliminado correctamente"
+                else:
+                    return "no esta tu puntuacion"
+    return render_template("puntuarPeli.html",name=usuario(),peli=peli)
+                            
+                            
+
 @app.route('/modificar_director',methods=["GET","POST"])
 def modificar_director():
     if request.method == "POST":

@@ -13,8 +13,9 @@
                 </span>
             </button>
         </form>
+        {% if titulo1 != "" %}
         {% for datos in peliculas %}
-            {% if datos['Titulo'] == titulo1 %}
+            {% if datos['Titulo'] in titulo1 %}
                 <article>
                     <div id="img">
                         <img src=" {{ datos ['img'] }} " alt="imagen" width="200px" height="300px">
@@ -32,6 +33,7 @@
                 </article>
             {% endif %} 
         {% endfor %}
+        {% endif %}
     </main>
     <footer>
         &copy Películas SBE

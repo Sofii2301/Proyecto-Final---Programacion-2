@@ -58,37 +58,59 @@ def confirm():
         for i in pelis_data:
             if directores in i["Director"]:
                 lista.append(i["Director"])
-        return redirect(url_for("buscar_directores", director=lista))
+        if lista != "":
+            director=""
+            for i in lista:
+                director = i + director
+        return redirect(url_for("buscar_directores", director=director))
     return error(directores)
 @app.route("/buscarDirectores",methods=["POST","GET"])
 def buscar_directores():
     director1 = request.args.get('director')
+    if director1 == None:
+        director1=""
     return render_template('buscar_directores.html',name=usuario(), peliculas=pelis_data, director1=director1)
 @app.route("/confirmar_peliculas", methods=["POST","GET"])
 def confirm_peliculas():
     if request.method == "POST":
         titulo=request.form["titulo"]
         titulo=titulo.title()
+        lista=[]
         for i in pelis_data:
             if titulo in i["Titulo"]:
-                return redirect(url_for("buscar_peliculas", titulo=i["Titulo"]))
+                lista.append(i["Titulo"])
+        if lista != "":
+                titulo=""
+                for i in lista:
+                    titulo=i + titulo
+                return redirect(url_for("buscar_peliculas", titulo=titulo))
     return error(titulo)
 @app.route("/buscarPeliculas")
 def buscar_peliculas():
     titulo1=request.args.get('titulo')
+    if titulo1 == None:
+        titulo1=""
     return render_template('buscar_peliculas.html',name=usuario(),peliculas=pelis_data,titulo1=titulo1)
 @app.route("/confirmar_actores", methods=["POST","GET"])
 def confirm_actores():
     if request.method == "POST":
         actores=request.form["actores"]
         actores=actores.title()
+        lista=[]
         for i in pelis_data:
             if actores in i["Actores"]:
-                return redirect(url_for("buscar_actores", actor=i["Actores"]))
+                lista.append(i["Actores"])
+        if lista != "":
+                actor=","
+                for i in lista:
+                    actor=i + actor
+                return redirect(url_for("buscar_actores", actor=actor))
     return error(actores)
 @app.route("/buscarActores")
 def buscar_actores():
     actor1=request.args.get('actor')
+    if actor1 == None:
+        actor1=""
     return render_template('buscar_actores.html',name=usuario(),peliculas=pelis_data,actor1=actor1)
 @app.route("/confirmar_agregar", methods=['GET','POST'])
 def confirm_agregar():

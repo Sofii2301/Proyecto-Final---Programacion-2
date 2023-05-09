@@ -154,5 +154,17 @@
         "Puntuacion usuarios" : "bruno,8,emanuel,9",
         "Puntuacion" : "8.6",
         "Comentarios": ""
+    },
+    {
+        "img": " https://pics.filmaffinity.com/batman-910896570-large.jpg ",
+        "Titulo": "Batman",
+        "Director": "Tim Burton", 
+        "año" : " 1989 ", 
+        "Genero" : " Fantástico ",
+        "Sinopsis" :" Cinta basada en el cómic homónimo. La oscura y peligrosa ciudad de Gotham tan sólo se halla protegida por su corrupto cuerpo de policía. A pesar de los esfuerzos del fiscal del distrito Harvey Dent y el comisionado de policía Jim Gordon, la ciudad es cada vez más insegura hasta que aparece Batman, el Señor de la Noche. La reputada periodista Vicky Vale intentará descubrir el secreto que se oculta tras el hombre murciélago. ",
+        "Actores" : " Michael Keaton, Jack Nicholson, Kim Basinger, Robert Wuhl, Pat Hingle, Billy Dee Williams, Michael Gough, Jack Palance, Jerry Hall, Tracey Walter ",
+        "Puntuacion usuarios" : "bruno,6,emanuel,5",
+        "Puntuacion" : "6.8",
+        "Comentarios": ""
     }
 ]

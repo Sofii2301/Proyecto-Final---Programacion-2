@@ -9,7 +9,7 @@ with open("usuarios.json", encoding='utf-8') as users:
     usuarios_data = json.load(users)
 with open("peliculas.json", encoding='utf-8') as pelis:
     pelis_data = json.load(pelis)
-
+#ruta para ver el nombre del usuario
 def usuario():
     if 'user' in session:
         name = session['user']
@@ -17,8 +17,11 @@ def usuario():
         name = ''
     return name
 
+#ruta de error
 def error(dato):    
     return render_template('error.html',name=usuario(),dato=dato)
+def error2(dato):
+    return render_template('error2.html',name=usuario(),dato=dato)
 
 #Rutas
 @app.route("/",methods=["GET"])
@@ -49,6 +52,8 @@ def generos():
 @app.route("/imagenes")
 def imagenes():
     return render_template('imagenes.html',name=usuario(),peliculas=pelis_data)
+
+#confirmar para buscar directores
 @app.route("/confirmar", methods=["POST","GET"])
 def confirm():
     if request.method == "POST":
@@ -63,13 +68,14 @@ def confirm():
             for i in lista:
                 director = i + director
         return redirect(url_for("buscar_directores", director=director))
-    return error(directores)
 @app.route("/buscarDirectores",methods=["POST","GET"])
 def buscar_directores():
     director1 = request.args.get('director')
     if director1 == None:
         director1=""
     return render_template('buscar_directores.html',name=usuario(), peliculas=pelis_data, director1=director1)
+
+#confirmar para buscar peliculas
 @app.route("/confirmar_peliculas", methods=["POST","GET"])
 def confirm_peliculas():
     if request.method == "POST":
@@ -91,6 +97,8 @@ def buscar_peliculas():
     if titulo1 == None:
         titulo1=""
     return render_template('buscar_peliculas.html',name=usuario(),peliculas=pelis_data,titulo1=titulo1)
+
+#confirmar para buscar actores
 @app.route("/confirmar_actores", methods=["POST","GET"])
 def confirm_actores():
     if request.method == "POST":
@@ -105,13 +113,14 @@ def confirm_actores():
                 for i in lista:
                     actor=i + actor
                 return redirect(url_for("buscar_actores", actor=actor))
-    return error(actores)
 @app.route("/buscarActores")
 def buscar_actores():
     actor1=request.args.get('actor')
     if actor1 == None:
         actor1=""
     return render_template('buscar_actores.html',name=usuario(),peliculas=pelis_data,actor1=actor1)
+
+#confirmar para agregar pelicula
 @app.route("/confirmar_agregar", methods=['GET','POST'])
 def confirm_agregar():
     if request.method == "POST":
@@ -128,7 +137,7 @@ def confirm_agregar():
         puntuacion=request.form["puntuacion"]
         for i in pelis_data:
             if i["Titulo"] == titulo:
-                return "ya existe esta pelicula"
+                return error2(dato=i["Titulo"])
         confirmacion="S"
         return redirect(url_for('agregar',titulo=titulo,director=director,año=año,genero=genero,
                                 sinopsis=sinopsis,actores=actores,confirmacion=confirmacion,imagen=imagen,
@@ -169,12 +178,14 @@ def agregar():
         director.append(datos['Director'])
         genero.append(datos['Genero'])    
     return render_template('agregarPeli.html',name=usuario(), directores=director, generos=genero)
+
+#rutas para usuario
 @app.route("/crear_usuario", methods=["GET","POST"])
 def crear_usuario():
     if request.method == "POST":
         for i in (usuarios_data):
             if i["nombre"]==request.form["username"]:
-                return "el usuario ya existe"
+                return error2(dato=i["nombre"])
         nuevo_usuario = {
                 "id" : "6",
                 "nombre": request.form["username"],
@@ -190,27 +201,24 @@ def eliminar_usuario():
             if i["nombre"]==request.form["username"]:
                 usuarios_data.remove(i)
                 return redirect(url_for("logout"))
-            else:
-                return "el usuario no existe"
     return render_template('eliminar_usuario.html',name=usuario())
 @app.route("/modificar_usuario",methods=["GET","POST"])
 def modificar_usuario():
     if request.method == "POST":
         for i in (usuarios_data):
             if request.form["new_username"] != "":
+                print (i["contrasenia"])
                 if i["nombre"]==request.form["username"] and i["contrasenia"] == request.form["password"]:
                     i["nombre"]=request.form["new_username"]
                     i["contrasenia"]=request.form["new_password"]
                     return redirect(url_for("home"))
-                else:
-                    return "contraseña invalida"
             else:
                 if request.form["new_password"] != "":
                     if i["nombre"]==request.form["username"]:
                         i["contrasenia"]==request.form["new_password"]
-                    else:
-                        return   "contraseña invalida"
     return render_template('editar_usuario.html',name=usuario())
+
+#ruta para peliculas
 @app.route('/eliminar/<peli>', methods=["GET","POST"])
 def eliminarPeli(peli):
     if 'user' not in session:
@@ -258,6 +266,7 @@ def editarPeli(peli):
 
     return render_template('editarPeli.html',name=usuario(), peli=peli)
 
+#buscador de peliculas por director
 @app.route('/peliculas/<director>', methods=["GET","POST"])
 def pelisDire(director):
     peliculas = []
@@ -266,6 +275,8 @@ def pelisDire(director):
             if pelicula['Director']==director:
                 peliculas.append(pelicula)
     return render_template("pelisDire.html",name=usuario(), director=director, peliculas=pelis_data)
+
+#ruta para puntuar una peli
 @app.route('/puntuar/<peli>',methods=["GET","POST"])
 def modificarPuntuacion(peli):
     if 'user' not in session:
@@ -322,6 +333,8 @@ def modificarPuntuacion(peli):
                             pelicula["Puntuacion usuarios"]=resultado
                                 
     return render_template("puntuarPeli.html",name=usuario(),peli=peli)
+
+#ruta para eliminar una puntuacion
 @app.route('/puntuar/eliminar/<peli>',methods=["GET","POST"])
 def eliminarPuntuacion(peli):
     if request.method=="POST":
@@ -356,13 +369,13 @@ def eliminarPuntuacion(peli):
                     nota=nota/contador
                     pelicula["Puntuacion"]=nota
                     pelicula["Puntuacion usuarios"]=resultado
-                    return "eliminado correctamente"
+                    return redirect(url_for("home"))
                 else:
-                    return "no esta tu puntuacion"
+                    return error(dato="Puntuacion")
     return render_template("puntuarPeli.html",name=usuario(),peli=peli)
-                            
-                            
 
+
+#ruta para modificar director
 @app.route('/modificar_director',methods=["GET","POST"])
 def modificar_director():
     if request.method == "POST":
@@ -371,6 +384,7 @@ def modificar_director():
                 i["Director"] =request.form["new_director"]
         return redirect(url_for('home'))
     return render_template('modificar_director.html',name=usuario(),peliculas=pelis_data)
+#ruta para modificar genero
 @app.route('/modificar_generos',methods=["GET","POST"])
 def modificar_genero():
     if request.method == "POST":
@@ -379,6 +393,7 @@ def modificar_genero():
                 i["Genero"] =request.form["new_genero"]
         return redirect(url_for('home'))
     return render_template('modificar_generos.html',name=usuario(),peliculas=pelis_data)
+#ruta para cerrar sesion
 @app.route('/logout')
 def logout():
   session.pop('user', None)

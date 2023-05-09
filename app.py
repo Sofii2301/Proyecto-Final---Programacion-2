@@ -60,10 +60,21 @@ def directores():
     return render_template('directores.html',name=usuario(),peliculas=pelis_data)
 @app.route("/generos")
 def generos():
-    return render_template('generos.html',name=usuario(),peliculas=pelis_data,)
+    lista=[]
+    for x in pelis_data:
+        if x["Genero"] not in lista:
+            lista.append(x["Genero"])
+    return render_template('generos.html',name=usuario(),peliculas=lista,)
 @app.route("/imagenes")
 def imagenes():
-    return render_template('imagenes.html',name=usuario(),peliculas=pelis_data)
+    page = request.args.get('page', 1, type=int)
+    per_page = 10
+    start_index = (page - 1) * per_page
+    end_index = start_index + per_page
+    peliculas = pelis_data[start_index:end_index]
+    total_peliculas = len(pelis_data)
+    total_pages = math.ceil(total_peliculas / per_page)
+    return render_template('imagenes.html',name=usuario(),peliculas=peliculas,total_pages=total_pages, current_page=page)
 
 #confirmar para buscar directores
 @app.route("/confirmar", methods=["POST","GET"])
@@ -360,7 +371,6 @@ def eliminarPuntuacion(peli):
                     lista2=[]
                     for x in comentario:
                         lista2.append(x)
-                    largo=len(lista2)
                     for z in range(len(lista2)):
                         if lista2[z] == usuario():
                             lista2.pop(z)
@@ -371,12 +381,10 @@ def eliminarPuntuacion(peli):
                     resultado=""
                     nota=0
                     for x in lista2:
-                        print ("x es"+x)
                         if x.isdigit():
                             numero=int(x)
                             contador=contador+1
                             nota=nota+numero
-                            print("nota es"+str(nota))
                         resultado=resultado+","+str(x)
                     nota=nota/contador
                     pelicula["Puntuacion"]=nota
@@ -399,12 +407,16 @@ def modificar_director():
 #ruta para modificar genero
 @app.route('/modificar_generos',methods=["GET","POST"])
 def modificar_genero():
+    lista=[]
+    for x in pelis_data:
+        if x["Genero"] not in lista:
+            lista.append(x["Genero"])
     if request.method == "POST":
         for i in pelis_data:
             if request.form["genero"] in i["Genero"]:
                 i["Genero"] =request.form["new_genero"]
         return redirect(url_for('home'))
-    return render_template('modificar_generos.html',name=usuario(),peliculas=pelis_data)
+    return render_template('modificar_generos.html',name=usuario(),peliculas=lista)
 #ruta para cerrar sesion
 @app.route('/logout')
 def logout():

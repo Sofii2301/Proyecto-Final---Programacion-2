@@ -191,6 +191,7 @@ def agregar():
             "Genero" : genero1,
             "Sinopsis" :sinopsis,
             "Actores" : actores,
+            "Puntuacion usuarios":"",
             "Puntuacion":puntuacion,
             "Comentarios":comentario
         }
@@ -289,7 +290,7 @@ def editarPeli(peli):
 
     return render_template('editarPeli.html',name=usuario(), peli=peli)
 
-#buscador de peliculas por director
+#buscador de peliculas por director en director
 @app.route('/peliculas/<director>', methods=["GET","POST"])
 def pelisDire(director):
     peliculas = []

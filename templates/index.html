@@ -122,13 +122,21 @@
                         {% endif %}    
                     </article>
                     {% endfor %}
+                    <div id="botones_pag">
                     {% if current_page > 1 %}
-                        <a href="?page={{ current_page - 1 }}">Anterior</a>
+                        <span class="material-symbols-outlined" id="span_ant">
+                            keyboard_double_arrow_left
+                        </span>
+                        <a href="?page={{ current_page - 1 }}" class="boton_paginado">Anterior</a>
                     {% endif %}
 
                     {% if current_page < total_pages %}
-                        <a href="?page={{ current_page + 1 }}">Siguiente</a>
+                        <a href="?page={{ current_page + 1 }}" class="boton_paginado">Siguiente</a>
+                        <span class="material-symbols-outlined" id="span_sig">
+                            keyboard_double_arrow_right
+                        </span>
                     {% endif %}
+                    </div>
                 </main>
                 <footer>
                     <p> Cantidad de visitas en la página: {{ visitas }} </p>

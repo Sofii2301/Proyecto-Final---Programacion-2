@@ -88,6 +88,7 @@
             <div id="contenedor-central">
                 <main>
                     <!-- para las peliculas -->
+                    {% if peliculas|length >= 10 %}
                     {% for datos in peliculas[peliculas|length-10:]|reverse %}
                     <article>
                         <div id="img">
@@ -122,6 +123,42 @@
                         {% endif %}    
                     </article>
                     {% endfor %}
+                    {% else %}
+                    {% for datos in peliculas|reverse %}
+                    <article>
+                        <div id="img">
+                            <img src=" {{ datos ['img'] }} " alt="imagen" width="200px" height="300px">
+                        </div>
+                        <div id="info">
+                            <h2 id="titulo_peli"> {{ datos ['Titulo'] }} </h2>
+                            <h3> Director: {{ datos ['Director'] }} </h3>
+                            <h3> Año: {{ datos ['año'] }} </h3>
+                            <h3> Género: {{ datos ['Genero'] }} </h3>
+                            <p id="id_sinopsis" > Sinopsis: </p> <p> {{ datos ['Sinopsis'] }} </p>
+                            <h4> Actores: {{ datos ['Actores'] }} </h4> 
+                            <h4> Puntuación: {{ datos ['Puntuacion'] }} </h4>
+                            <h4> Comentarios: {{ datos ['Comentarios'] }}</h4> 
+                        </div>
+                        {% if name != '' %}
+                        <div id="editar">
+                            <form action="/editar/{{ datos ['Titulo'] }}">
+                                <input type="submit" value="Editar" id="boton_opc_editar">
+                            </form>
+
+                            <form action="/puntuar/{{ datos['Titulo']}}">
+                                <input type="submit" name="Puntuar" value="Puntuar" id="boton_opc_puntuar">
+                            </form>
+                            {% if datos['Comentarios'] == '' %}
+                            <form action="/eliminar/{{ datos ['Titulo'] }}">
+                                <input type="submit" value="Eliminar" id="boton_opc_eliminar">
+                            </form>
+                        </div>
+
+                        {% endif %}
+                        {% endif %}    
+                    </article>
+                    {% endfor %}
+                    {% endif %}
                 </main>
                 <footer>
                     <p> Cantidad de visitas en la página: {{ visitas }} </p>

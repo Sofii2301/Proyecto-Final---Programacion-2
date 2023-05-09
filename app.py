@@ -102,7 +102,8 @@ def confirm_peliculas():
                 for i in lista:
                     titulo=i + titulo
                 return redirect(url_for("buscar_peliculas", titulo=titulo))
-@app.route("/buscarPeliculas")
+    return error(titulo)
+@app.route("/buscarPeliculas", methods=["POST","GET"])
 def buscar_peliculas():
     titulo1=request.args.get('titulo')
     if titulo1 == None:

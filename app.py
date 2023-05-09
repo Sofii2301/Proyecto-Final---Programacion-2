@@ -1,3 +1,4 @@
+import math
 from flask import Flask, session, redirect, url_for, request, jsonify
 from flask import render_template
 import json
@@ -26,9 +27,20 @@ def error2(dato):
 #Rutas
 @app.route("/",methods=["GET"])
 def home():
+    page = request.args.get('page', 1, type=int)
+    per_page = 10
+    start_index = (page - 1) * per_page
+    end_index = start_index + per_page
+    peliculas2=pelis_data
+    peliculas2=list(peliculas2)
+    if len(peliculas2)>1:
+        peliculas2.reverse()
+    peliculas = peliculas2[start_index:end_index]
+    total_peliculas = len(pelis_data)
+    total_pages = math.ceil(total_peliculas / per_page)
     session['contador'] = session.get('contador',0) + 1
     contador_visitas=session['contador']
-    return render_template('index.html',name=usuario(),peliculas=pelis_data,visitas=contador_visitas)
+    return render_template('index.html',name=usuario(),peliculas=peliculas,visitas=contador_visitas,total_pages=total_pages, current_page=page)
 
 @app.route("/ingresar" )
 def ingresar():

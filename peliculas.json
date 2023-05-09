@@ -118,5 +118,41 @@
         "Puntuacion usuarios" : "bruno,10,sofi,10,emanuel,10",
         "Puntuacion" : "10",
         "Comentarios": ""
+    },
+    {
+        "img": " https://pics.filmaffinity.com/the_godfather-488102675-large.jpg ",
+        "Titulo": "The Godfather",
+        "Director": "Francis Ford Coppola", 
+        "año" : " 1972 ", 
+        "Genero" : " Drama ",
+        "Sinopsis" :" América, años 40. Don Vito Corleone (Marlon Brando) es el respetado y temido jefe de una de las cinco familias de la mafia de Nueva York. Tiene cuatro hijos: Connie (Talia Shire), el impulsivo Sonny (James Caan), el pusilánime Fredo (John Cazale) y Michael (Al Pacino), que no quiere saber nada de los negocios de su padre. Cuando Corleone, en contra de los consejos de 'Il consigliere' Tom Hagen (Robert Duvall), se niega a participar en el negocio de las drogas, el jefe de otra banda ordena su asesinato. Empieza entonces una violenta y cruenta guerra entre las familias mafiosas. ",
+        "Actores" : " Marlon Brando, Al Pacino, James Caan, Robert Duvall, Diane Keaton, John Cazale, Talia Shire, Richard S. Castellano, Sterling Hayden, Gianni Russo. ",
+        "Puntuacion usuarios" : "bruno,10,sofi,10",
+        "Puntuacion" : "9",
+        "Comentarios": ""
+    },
+    {
+        "img": " https://pics.filmaffinity.com/city_lights-825971402-large.jpg ",
+        "Titulo": "City Lights",
+        "Director": "Charles Chaplin", 
+        "año" : " 1931 ", 
+        "Genero" : " Comedia ",
+        "Sinopsis" :" Un pobre vagabundo (Charles Chaplin) pasa mil y un avatares para conseguir dinero y ayudar a una florista ciega (Virginia Cherrill) de la que se ha enamorado. ",
+        "Actores" : " Charles Chaplin, Virginia Cherrill, Florence Lee, Harry Myers, Allan Garcia, Hank Mann, Jack Alexander, Tom Dempsey, Henry Bergman. ",
+        "Puntuacion usuarios" : "sofi,7",
+        "Puntuacion" : "8.6",
+        "Comentarios": ""
+    },
+    {
+        "img": " https://pics.filmaffinity.com/the_shawshank_redemption-576140557-large.jpg ",
+        "Titulo": "The Shawshank Redemption",
+        "Director": "Frank Darabont", 
+        "año" : " 1994 ", 
+        "Genero" : " Drama ",
+        "Sinopsis" :" Acusado del asesinato de su mujer, Andrew Dufresne (Tim Robbins), tras ser condenado a cadena perpetua, es enviado a la cárcel de Shawshank. Con el paso de los años conseguirá ganarse la confianza del director del centro y el respeto de sus compañeros de prisión, especialmente de Red (Morgan Freeman), el jefe de la mafia de los sobornos. ",
+        "Actores" : " Tim Robbins, Morgan Freeman, Bob Gunton, James Whitmore, Gil Bellows, William Sadler, Mark Rolston, Clancy Brown, David Proval, Jeffrey DeMunn. ",
+        "Puntuacion usuarios" : "bruno,8,emanuel,9",
+        "Puntuacion" : "8.6",
+        "Comentarios": ""
     }
 ]

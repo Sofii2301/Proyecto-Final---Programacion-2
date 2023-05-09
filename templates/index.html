@@ -18,7 +18,12 @@
                         <p id="nombre_usuario"> {{ name }} </p>
                         </button> 
                     </a>
-                    <h1> Pelis SBE </h1>
+                    
+                    <div id="id_logo">
+                        <img alt="logo pelis SBE" src="{{ url_for('static', filename='img/logo.png' )}}" id="logo">
+                        <!-- <h1> Pelis SBE </h1> -->
+                    </div>
+                
                     <div class="barra_navegacion">
                         <div id="botones_barra_izq">
                             <button class="boton-barra-inicio">
@@ -100,28 +105,19 @@
                         </div>
                         {% if name != '' %}
                         <div id="editar">
-                            <div>
-                                <form action="/editar/{{ datos ['Titulo'] }}">
-                                    <input type="submit" value="Editar" id="boton_opc_editar">
-                                </form>
-                              </div>
-                        </div>
-                        </div id="puntuar">
-                            <div>
-                                <form action="/puntuar/{{ datos['Titulo']}}">
-                                    <input type="submit" name="Puntuar" value="Puntuar" id="boton_opc_puntuar">
-                                </form>
-                            </div>
-                        <div>
-                        {% if datos['Comentarios'] == '' %}
-                        <div id="eliminar">
-                            <div>
-                                <form action="/eliminar/{{ datos ['Titulo'] }}">
-                                    <input type="submit" value="Eliminar" id="boton_opc_eliminar">
-                                </form>
-                              </div>
+                            <form action="/editar/{{ datos ['Titulo'] }}">
+                                <input type="submit" value="Editar" id="boton_opc_editar">
+                            </form>
 
+                            <form action="/puntuar/{{ datos['Titulo']}}">
+                                <input type="submit" name="Puntuar" value="Puntuar" id="boton_opc_puntuar">
+                            </form>
+                            {% if datos['Comentarios'] == '' %}
+                            <form action="/eliminar/{{ datos ['Titulo'] }}">
+                                <input type="submit" value="Eliminar" id="boton_opc_eliminar">
+                            </form>
                         </div>
+
                         {% endif %}
                         {% endif %}    
                     </article>

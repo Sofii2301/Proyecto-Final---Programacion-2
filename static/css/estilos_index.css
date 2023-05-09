@@ -16,6 +16,19 @@ body {
     padding: 5px;
 }
 
+#id_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo {
+    display: flex;
+    height: 170px;
+    width: 300px;
+    margin-top: -22px;
+}  
+
 h1 {
     display: flex;
     flex-direction: column-reverse;
@@ -122,6 +135,17 @@ button {
     height: 50px;
     font-size: 20px;
     background-color: #c00000;
+}
+
+#boton_opc_puntuar {
+    border-radius: 5px;
+    color: white;
+    background-color: #ffae00;
+    border-style: hidden;
+    cursor: pointer;
+    padding: 5px;
+    margin-top: 6px;
+    margin-bottom: 6px;
 }
 
 #boton_opc_eliminar {
